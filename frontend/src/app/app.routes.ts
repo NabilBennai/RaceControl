@@ -3,6 +3,7 @@ import {Routes} from '@angular/router';
 import {LoginComponent} from './auth/login.component';
 import {RegisterComponent} from './auth/register.component';
 import {adminGuard} from './core/guards/admin.guard';
+import {anonOnlyGuard} from './core/guards/anon-only.guard';
 import {authGuard} from './core/guards/auth.guard';
 import {AppLayoutComponent} from './layout/app-layout.component';
 
@@ -11,9 +12,13 @@ export const routes: Routes = [
     path: '',
     component: AppLayoutComponent,
     children: [
-      {path: '', redirectTo: 'login', pathMatch: 'full'},
-      {path: 'login', component: LoginComponent},
-      {path: 'register', component: RegisterComponent},
+      {
+        path: '',
+        canActivate: [anonOnlyGuard],
+        loadComponent: () => import('./features/home/home.component').then((m) => m.HomeComponent)
+      },
+      {path: 'login', canActivate: [anonOnlyGuard], component: LoginComponent},
+      {path: 'register', canActivate: [anonOnlyGuard], component: RegisterComponent},
       {
         path: 'app',
         canActivate: [authGuard],
@@ -26,5 +31,5 @@ export const routes: Routes = [
       }
     ]
   },
-  {path: '**', redirectTo: 'login'}
+  {path: '**', redirectTo: ''}
 ];

@@ -10,7 +10,7 @@
     <relativePath/>
   </parent>
 
-  <groupId>com.example</groupId>
+  <groupId>com.racecontrol</groupId>
   <artifactId>backend</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 

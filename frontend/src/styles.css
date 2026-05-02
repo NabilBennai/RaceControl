@@ -3,20 +3,100 @@
 
 @source "../node_modules/preline/dist/*.js";
 
-/* Optional Preline UI Datepicker Plugin */
-/* @import "preline/src/plugins/datepicker/styles.css"; */
-
-/* Plugins */
-/* @plugin "@tailwindcss/forms"; */
-/* @plugin "@tailwindcss/aspect-ratio"; */
-
 :root {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color-scheme: light;
+  --rc-bg: #f8fafc;
+  --rc-bg-muted: #eef2ff;
+  --rc-surface: #ffffff;
+  --rc-surface-2: #f8fafc;
+  --rc-border: #dbe3f1;
+  --rc-text: #0f172a;
+  --rc-text-muted: #475569;
+  --rc-primary: #06b6d4;
+  --rc-primary-strong: #0891b2;
+  --rc-primary-contrast: #ecfeff;
 }
 
+html.dark {
+  color-scheme: dark;
+  --rc-bg: #020617;
+  --rc-bg-muted: #0b1224;
+  --rc-surface: #0f172a;
+  --rc-surface-2: #111c34;
+  --rc-border: #24324f;
+  --rc-text: #e2e8f0;
+  --rc-text-muted: #94a3b8;
+  --rc-primary: #22d3ee;
+  --rc-primary-strong: #06b6d4;
+  --rc-primary-contrast: #042f3a;
+}
+
+html,
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
-  color: #0f172a;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background:
+    radial-gradient(1200px 500px at 15% -15%, color-mix(in srgb, var(--rc-primary) 18%, transparent), transparent 60%),
+    linear-gradient(180deg, var(--rc-bg) 0%, var(--rc-bg-muted) 100%);
+  color: var(--rc-text);
+}
+
+.rc-panel {
+  background: linear-gradient(180deg, var(--rc-surface) 0%, var(--rc-surface-2) 100%);
+  border: 1px solid var(--rc-border);
+  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.12);
+}
+
+html.dark .rc-panel {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.rc-input {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid var(--rc-border);
+  background: var(--rc-surface);
+  color: var(--rc-text);
+  padding: 0.65rem 0.85rem;
+  outline: none;
+}
+
+.rc-input::placeholder {
+  color: var(--rc-text-muted);
+}
+
+.rc-input:focus {
+  border-color: var(--rc-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--rc-primary) 24%, transparent);
+}
+
+.rc-btn-primary {
+  border-radius: 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--rc-primary-strong) 70%, #000 30%);
+  background: linear-gradient(100deg, var(--rc-primary), var(--rc-primary-strong));
+  color: var(--rc-primary-contrast);
+  font-weight: 600;
+  padding: 0.65rem 1rem;
+}
+
+.rc-btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.rc-btn-ghost {
+  border-radius: 0.75rem;
+  border: 1px solid var(--rc-border);
+  color: var(--rc-text-muted);
+  background: transparent;
+  padding: 0.55rem 0.8rem;
+}
+
+.rc-btn-ghost:hover {
+  color: var(--rc-text);
+  background: color-mix(in srgb, var(--rc-surface) 70%, var(--rc-primary) 8%);
 }

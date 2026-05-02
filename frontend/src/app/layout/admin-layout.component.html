@@ -1,4 +1,6 @@
-﻿<section class="rounded-xl bg-white p-5 shadow">
-  <h2 class="text-xl font-semibold">{{ 'common.adminTitle' | translate }}</h2>
-  <p>{{ 'common.adminDescription' | translate }}</p>
+<section class="rc-panel rounded-2xl p-6">
+  <h2 class="inline-flex items-center gap-2 text-2xl font-semibold text-[var(--rc-text)]">
+    <fa-icon [icon]="adminIcon"></fa-icon>{{ 'common.adminTitle' | translate }}
+  </h2>
+  <p class="mt-2 text-[var(--rc-text-muted)]">{{ 'common.adminDescription' | translate }}</p>
 </section>
