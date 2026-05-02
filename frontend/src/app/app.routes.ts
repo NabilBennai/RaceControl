@@ -30,6 +30,21 @@ export const routes: Routes = [
         loadComponent: () => import('./layout/private-layout.component').then((m) => m.PrivateLayoutComponent)
       },
       {
+        path: 'leagues',
+        canActivate: [authGuard],
+        loadComponent: () => import('./features/leagues/leagues-list.component').then((m) => m.LeaguesListComponent)
+      },
+      {
+        path: 'leagues/new',
+        canActivate: [authGuard],
+        loadComponent: () => import('./features/leagues/league-create.component').then((m) => m.LeagueCreateComponent)
+      },
+      {
+        path: 'leagues/:id',
+        canActivate: [authGuard],
+        loadComponent: () => import('./features/leagues/league-detail.component').then((m) => m.LeagueDetailComponent)
+      },
+      {
         path: 'admin',
         canActivate: [authGuard, adminGuard],
         loadComponent: () => import('./layout/admin-layout.component').then((m) => m.AdminLayoutComponent)

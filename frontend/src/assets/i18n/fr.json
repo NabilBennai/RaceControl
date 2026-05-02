@@ -47,6 +47,42 @@
     "cardStewardTitle": "Résultats et discipline",
     "cardStewardDescription": "Saisis les résultats, recalcules les classements et gères pénalités/réclamations."
   },
+  "league": {
+    "manage": "Gérer les ligues",
+    "listTitle": "Mes ligues",
+    "listSubtitle": "Crée, consulte et administre tes ligues de championnat.",
+    "createTitle": "Créer une ligue",
+    "createSubtitle": "Renseigne les informations de ta ligue pour démarrer la saison.",
+    "name": "Nom de la ligue",
+    "description": "Description",
+    "platform": "Jeu",
+    "visibilityLabel": "Visibilité",
+    "visibility": {
+      "PUBLIC": "Publique",
+      "PRIVATE": "Privée"
+    },
+    "myRole": "Mon rôle",
+    "create": "Créer la ligue",
+    "update": "Mettre à jour la ligue",
+    "delete": "Supprimer la ligue",
+    "viewDetails": "Voir les détails",
+    "backToList": "Retour à la liste",
+    "emptyList": "Aucune ligue pour le moment. Crée ta première ligue.",
+    "loading": "Chargement de la ligue...",
+    "createdTitle": "Ligue créée",
+    "createdMessage": "La ligue a été créée avec le rôle OWNER.",
+    "updatedTitle": "Ligue mise à jour",
+    "updatedMessage": "Les informations de la ligue ont été enregistrées.",
+    "deletedTitle": "Ligue supprimée",
+    "deletedMessage": "La ligue a été supprimée.",
+    "errors": {
+      "listFailed": "Impossible de charger les ligues.",
+      "createFailed": "Impossible de créer la ligue.",
+      "loadFailed": "Impossible de charger la ligue.",
+      "updateFailed": "Impossible de mettre à jour la ligue.",
+      "deleteFailed": "Impossible de supprimer la ligue."
+    }
+  },
   "nav": {
     "brand": "RaceControl",
     "home": "Accueil",

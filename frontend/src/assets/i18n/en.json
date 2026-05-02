@@ -47,6 +47,42 @@
     "cardStewardTitle": "Results and discipline",
     "cardStewardDescription": "Enter results, recalculate standings, and manage penalties/protests."
   },
+  "league": {
+    "manage": "Manage leagues",
+    "listTitle": "My leagues",
+    "listSubtitle": "Create, browse and manage your championship leagues.",
+    "createTitle": "Create a league",
+    "createSubtitle": "Fill in your league information to start the season.",
+    "name": "League name",
+    "description": "Description",
+    "platform": "Game",
+    "visibilityLabel": "Visibility",
+    "visibility": {
+      "PUBLIC": "Public",
+      "PRIVATE": "Private"
+    },
+    "myRole": "My role",
+    "create": "Create league",
+    "update": "Update league",
+    "delete": "Delete league",
+    "viewDetails": "View details",
+    "backToList": "Back to list",
+    "emptyList": "No league yet. Create your first league.",
+    "loading": "Loading league...",
+    "createdTitle": "League created",
+    "createdMessage": "The league was created with OWNER role.",
+    "updatedTitle": "League updated",
+    "updatedMessage": "League information has been saved.",
+    "deletedTitle": "League deleted",
+    "deletedMessage": "League was deleted.",
+    "errors": {
+      "listFailed": "Unable to load leagues.",
+      "createFailed": "Unable to create league.",
+      "loadFailed": "Unable to load league.",
+      "updateFailed": "Unable to update league.",
+      "deleteFailed": "Unable to delete league."
+    }
+  },
   "nav": {
     "brand": "RaceControl",
     "home": "Home",
