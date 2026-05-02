@@ -1,7 +1,7 @@
 ﻿import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {FaIconComponent} from '@fortawesome/angular-fontawesome';
-import {faEnvelope, faLock, faUserPlus} from '@fortawesome/free-solid-svg-icons';
+import {faEnvelope, faLock, faUser, faUserPlus} from '@fortawesome/free-solid-svg-icons';
 import {Router} from '@angular/router';
 import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 
@@ -16,7 +16,7 @@ import {ToastService} from '../shared/services/toast.service';
 })
 export class RegisterComponent {
   readonly form: FormGroup;
-  readonly icons = {email: faEnvelope, password: faLock, submit: faUserPlus};
+  readonly icons = {username: faUser, email: faEnvelope, password: faLock, submit: faUserPlus};
 
   constructor(
     private readonly fb: FormBuilder,
@@ -26,6 +26,7 @@ export class RegisterComponent {
     private readonly translateService: TranslateService
   ) {
     this.form = this.fb.nonNullable.group({
+      username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]]
     });

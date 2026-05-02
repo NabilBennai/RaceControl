@@ -33,6 +33,7 @@ public class AuthService {
 
     User user = repo.save(User.builder()
       .email(request.email())
+      .username(request.username())
       .password(encoder.encode(request.password()))
       .role(Role.USER)
       .build());

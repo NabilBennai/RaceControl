@@ -2,6 +2,7 @@
   "auth": {
     "login": "Login",
     "register": "Register",
+    "username": "Username",
     "email": "Email",
     "password": "Password",
     "loginTitle": "Sign in to RaceControl",
@@ -58,7 +59,7 @@
   },
   "toast": {
     "formInvalidTitle": "Incomplete form",
-    "formInvalidMessage": "Check your email and password.",
+    "formInvalidMessage": "Check your username, email and password.",
     "loginSuccessTitle": "Login successful",
     "loginSuccessMessage": "Welcome to RaceControl.",
     "loginErrorTitle": "Login failed",

@@ -25,6 +25,11 @@ export const routes: Routes = [
         loadComponent: () => import('./layout/private-layout.component').then((m) => m.PrivateLayoutComponent)
       },
       {
+        path: 'dashboard',
+        canActivate: [authGuard],
+        loadComponent: () => import('./layout/private-layout.component').then((m) => m.PrivateLayoutComponent)
+      },
+      {
         path: 'admin',
         canActivate: [authGuard, adminGuard],
         loadComponent: () => import('./layout/admin-layout.component').then((m) => m.AdminLayoutComponent)

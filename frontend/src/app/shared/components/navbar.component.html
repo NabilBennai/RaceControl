@@ -1,15 +1,20 @@
-﻿<header class="sticky top-0 z-50 w-full border-b border-[var(--rc-border)] bg-[color:var(--rc-surface)]/95 backdrop-blur supports-[backdrop-filter]:bg-[color:var(--rc-surface)]/80">
-  <nav class="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3" aria-label="Global">
+﻿<header
+  class="sticky top-0 z-50 w-full border-b border-[var(--rc-border)] bg-[color:var(--rc-surface)]/95 backdrop-blur supports-[backdrop-filter]:bg-[color:var(--rc-surface)]/80">
+  <nav aria-label="Global" class="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3">
     <a class="inline-flex items-center gap-2 text-lg font-semibold text-[var(--rc-text)]" routerLink="/">
-      <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-cyan-500 font-bold text-slate-950">R</span>
+      <span
+        class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-cyan-500 font-bold text-slate-950">R</span>
       {{ 'nav.brand' | translate }}
     </a>
 
     <div class="hidden items-center gap-1 md:flex">
-      <a routerLink="/" class="rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]">{{ 'nav.home' | translate }}</a>
-      <a routerLink="/app" class="rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]">{{ 'nav.dashboard' | translate }}</a>
+      <a class="rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]"
+         routerLink="/">{{ 'nav.home' | translate }}</a>
+      <a class="rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]"
+         routerLink="/dashboard">{{ 'nav.dashboard' | translate }}</a>
       @if (isAuthenticated && isAdmin) {
-        <a routerLink="/admin" class="rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]">{{ 'nav.admin' | translate }}</a>
+        <a class="rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]"
+           routerLink="/admin">{{ 'nav.admin' | translate }}</a>
       }
     </div>
 
@@ -23,40 +28,68 @@
         <span>{{ currentLang === 'fr' ? 'EN' : 'FR' }}</span>
       </button>
       @if (!isAuthenticated) {
-        <a routerLink="/login" class="rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]">{{ 'auth.login' | translate }}</a>
-        <a routerLink="/register" class="rc-btn-primary inline-flex items-center gap-2"><fa-icon [icon]="icons.register"></fa-icon>{{ 'auth.register' | translate }}</a>
+        <a class="rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]"
+           routerLink="/login">{{ 'auth.login' | translate }}</a>
+        <a class="rc-btn-primary inline-flex items-center gap-2" routerLink="/register">
+          <fa-icon [icon]="icons.register"></fa-icon>
+          {{ 'auth.register' | translate }}</a>
       } @else {
-        <button (click)="logout()" class="rc-btn-ghost inline-flex items-center gap-2" type="button"><fa-icon [icon]="icons.logout"></fa-icon>{{ 'nav.logout' | translate }}</button>
+        <button (click)="logout()" class="rc-btn-ghost inline-flex items-center gap-2" type="button">
+          <fa-icon [icon]="icons.logout"></fa-icon>
+          {{ 'nav.logout' | translate }}
+        </button>
       }
     </div>
 
     <button
-      type="button"
+      [attr.aria-label]="'nav.toggleNavigation' | translate"
+      aria-controls="mobile-menu"
       class="hs-collapse-toggle inline-flex size-9 items-center justify-center rounded-lg border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] text-[var(--rc-text)] md:hidden"
       data-hs-collapse="#mobile-menu"
-      aria-controls="mobile-menu"
-      [attr.aria-label]="'nav.toggleNavigation' | translate">
-      <svg class="size-4 hs-collapse-open:hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 6h18M3 12h18M3 18h18"/></svg>
-      <svg class="hidden size-4 hs-collapse-open:block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      type="button">
+      <svg class="size-4 hs-collapse-open:hidden" fill="none" stroke="currentColor" stroke-width="2"
+           viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <svg class="hidden size-4 hs-collapse-open:block" fill="none" stroke="currentColor"
+           stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </button>
   </nav>
 
-  <div id="mobile-menu" class="hs-collapse hidden border-t border-[var(--rc-border)] md:hidden">
+  <div class="hs-collapse hidden border-t border-[var(--rc-border)] md:hidden" id="mobile-menu">
     <div class="space-y-1 px-4 py-3">
-      <a routerLink="/" class="block rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]">{{ 'nav.home' | translate }}</a>
-      <a routerLink="/app" class="block rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]">{{ 'nav.dashboard' | translate }}</a>
+      <a class="block rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]"
+         routerLink="/">{{ 'nav.home' | translate }}</a>
+      <a class="block rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]"
+         routerLink="/dashboard">{{ 'nav.dashboard' | translate }}</a>
       @if (isAuthenticated && isAdmin) {
-        <a routerLink="/admin" class="block rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]">{{ 'nav.admin' | translate }}</a>
+        <a class="block rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]"
+           routerLink="/admin">{{ 'nav.admin' | translate }}</a>
       }
       <div class="mt-2 flex items-center gap-2">
-        <button (click)="toggleTheme()" class="rc-btn-ghost inline-flex flex-1 items-center justify-center gap-2" type="button"><fa-icon [icon]="isDarkMode ? icons.themeLight : icons.themeDark"></fa-icon><span>{{ isDarkMode ? ('nav.themeLight' | translate) : ('nav.themeDark' | translate) }}</span></button>
-        <button (click)="toggleLanguage()" class="rc-btn-ghost inline-flex flex-1 items-center justify-center gap-2" type="button"><fa-icon [icon]="icons.lang"></fa-icon><span>{{ currentLang === 'fr' ? 'EN' : 'FR' }}</span></button>
+        <button (click)="toggleTheme()" class="rc-btn-ghost inline-flex flex-1 items-center justify-center gap-2"
+                type="button">
+          <fa-icon [icon]="isDarkMode ? icons.themeLight : icons.themeDark"></fa-icon>
+          <span>{{ isDarkMode ? ('nav.themeLight' | translate) : ('nav.themeDark' | translate) }}</span></button>
+        <button (click)="toggleLanguage()" class="rc-btn-ghost inline-flex flex-1 items-center justify-center gap-2"
+                type="button">
+          <fa-icon [icon]="icons.lang"></fa-icon>
+          <span>{{ currentLang === 'fr' ? 'EN' : 'FR' }}</span></button>
       </div>
       @if (!isAuthenticated) {
-        <a routerLink="/login" class="block rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]">{{ 'auth.login' | translate }}</a>
-        <a routerLink="/register" class="rc-btn-primary inline-flex w-full items-center justify-center gap-2"><fa-icon [icon]="icons.register"></fa-icon>{{ 'auth.register' | translate }}</a>
+        <a class="block rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]"
+           routerLink="/login">{{ 'auth.login' | translate }}</a>
+        <a class="rc-btn-primary inline-flex w-full items-center justify-center gap-2" routerLink="/register">
+          <fa-icon [icon]="icons.register"></fa-icon>
+          {{ 'auth.register' | translate }}</a>
       } @else {
-        <button (click)="logout()" class="rc-btn-ghost inline-flex w-full items-center justify-center gap-2" type="button"><fa-icon [icon]="icons.logout"></fa-icon>{{ 'nav.logout' | translate }}</button>
+        <button (click)="logout()" class="rc-btn-ghost inline-flex w-full items-center justify-center gap-2"
+                type="button">
+          <fa-icon [icon]="icons.logout"></fa-icon>
+          {{ 'nav.logout' | translate }}
+        </button>
       }
     </div>
   </div>

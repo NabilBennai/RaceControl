@@ -2,6 +2,7 @@
   "auth": {
     "login": "Connexion",
     "register": "Inscription",
+    "username": "Pseudo",
     "email": "Email",
     "password": "Mot de passe",
     "loginTitle": "Connecte-toi à RaceControl",
@@ -58,7 +59,7 @@
   },
   "toast": {
     "formInvalidTitle": "Formulaire incomplet",
-    "formInvalidMessage": "Vérifiez votre email et votre mot de passe.",
+    "formInvalidMessage": "Vérifiez votre pseudo, votre email et votre mot de passe.",
     "loginSuccessTitle": "Connexion réussie",
     "loginSuccessMessage": "Bienvenue sur RaceControl.",
     "loginErrorTitle": "Connexion impossible",
