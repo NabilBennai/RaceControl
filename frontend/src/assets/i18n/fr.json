@@ -1,0 +1,21 @@
+﻿{
+  "auth": {
+    "login": "Connexion",
+    "register": "Inscription",
+    "email": "Email",
+    "password": "Mot de passe"
+  },
+  "nav": {
+    "brand": "Template Auth",
+    "dashboard": "Tableau de bord",
+    "admin": "Administration",
+    "logout": "Déconnexion"
+  },
+  "common": {
+    "welcome": "Bienvenue",
+    "dashboardTitle": "Tableau de bord",
+    "dashboardDescription": "Vous êtes connecté et pouvez accéder à vos fonctionnalités.",
+    "adminTitle": "Administration",
+    "adminDescription": "Accès réservé aux utilisateurs avec rôle administrateur."
+  }
+}

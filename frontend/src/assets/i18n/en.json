@@ -1,0 +1,21 @@
+﻿{
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password"
+  },
+  "nav": {
+    "brand": "Auth Template",
+    "dashboard": "Dashboard",
+    "admin": "Admin",
+    "logout": "Logout"
+  },
+  "common": {
+    "welcome": "Welcome",
+    "dashboardTitle": "Dashboard",
+    "dashboardDescription": "You are signed in and can access your features.",
+    "adminTitle": "Administration",
+    "adminDescription": "Access restricted to users with admin role."
+  }
+}

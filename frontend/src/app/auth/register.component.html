@@ -1,0 +1,13 @@
+﻿<form (ngSubmit)="submit()" [formGroup]="form" class="space-y-4 rounded-xl bg-white p-4 shadow">
+  <label class="block">
+    {{ 'auth.email' | translate }}
+    <input class="w-full rounded border p-2" formControlName="email" type="email"/>
+  </label>
+  <label class="block">
+    {{ 'auth.password' | translate }}
+    <input class="w-full rounded border p-2" formControlName="password" type="password"/>
+  </label>
+  <button [disabled]="form.invalid" class="rounded bg-slate-900 px-4 py-2 text-sm font-medium text-white" type="submit">
+    {{ 'auth.register' | translate }}
+  </button>
+</form>
