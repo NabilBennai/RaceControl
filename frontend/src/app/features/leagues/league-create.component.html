@@ -1,6 +1,11 @@
-<section class="mx-auto w-full max-w-4xl px-4 py-8">
-  <div class="rc-panel rounded-3xl p-7">
-    <app-league-header title="league.createTitle" subtitle="league.createSubtitle"></app-league-header>
+<section class="rc-page rc-page-narrow rc-stagger">
+  <app-league-header title="league.createTitle" subtitle="league.createSubtitle" eyebrow="paddock.newLeagueEyebrow"></app-league-header>
+
+  <div class="rc-panel p-7 md:p-10">
     <app-league-form submitLabel="league.create" (submitted)="createLeague($event)"></app-league-form>
+  </div>
+
+  <div class="mt-6 flex items-center gap-3">
+    <a class="rc-link-quiet text-sm" routerLink="/leagues">← {{ 'league.backToList' | translate }}</a>
   </div>
 </section>

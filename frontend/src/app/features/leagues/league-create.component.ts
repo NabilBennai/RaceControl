@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Router} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 
 import {LeagueRequest} from '../../core/models/league.models';
@@ -10,7 +10,7 @@ import {LeagueHeaderComponent} from './components/league-header.component';
 
 @Component({
   selector: 'app-league-create',
-  imports: [LeagueFormComponent, LeagueHeaderComponent],
+  imports: [LeagueFormComponent, LeagueHeaderComponent, RouterLink, TranslatePipe],
   templateUrl: './league-create.component.html',
   styleUrl: './league-create.component.scss'
 })

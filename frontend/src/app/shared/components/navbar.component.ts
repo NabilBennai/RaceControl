@@ -1,4 +1,5 @@
 ﻿import {Component} from '@angular/core';
+import {UpperCasePipe} from '@angular/common';
 import {FaIconComponent} from '@fortawesome/angular-fontawesome';
 import {
   faGaugeHigh,
@@ -9,7 +10,7 @@ import {
   faSun,
   faUserPlus
 } from '@fortawesome/free-solid-svg-icons';
-import {Router, RouterLink} from '@angular/router';
+import {Router, RouterLink, RouterLinkActive} from '@angular/router';
 import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 
 import {AuthService} from '../../core/services/auth.service';
@@ -19,7 +20,7 @@ import {ToastService} from '../services/toast.service';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, TranslatePipe, FaIconComponent],
+  imports: [RouterLink, RouterLinkActive, TranslatePipe, FaIconComponent, UpperCasePipe],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })

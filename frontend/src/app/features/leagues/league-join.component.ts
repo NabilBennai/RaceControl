@@ -5,11 +5,10 @@ import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 
 import {LeagueService} from '../../core/services/league.service';
 import {ToastService} from '../../shared/services/toast.service';
-import {LeagueHeaderComponent} from './components/league-header.component';
 
 @Component({
   selector: 'app-league-join',
-  imports: [ReactiveFormsModule, RouterLink, TranslatePipe, LeagueHeaderComponent],
+  imports: [ReactiveFormsModule, RouterLink, TranslatePipe],
   templateUrl: './league-join.component.html',
   styleUrl: './league-join.component.scss'
 })

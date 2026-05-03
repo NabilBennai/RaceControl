@@ -5,11 +5,10 @@ import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 import {LeagueMemberResponse} from '../../core/models/league.models';
 import {LeagueService} from '../../core/services/league.service';
 import {ToastService} from '../../shared/services/toast.service';
-import {LeagueHeaderComponent} from './components/league-header.component';
 
 @Component({
   selector: 'app-league-members',
-  imports: [RouterLink, TranslatePipe, LeagueHeaderComponent],
+  imports: [RouterLink, TranslatePipe],
   templateUrl: './league-members.component.html',
   styleUrl: './league-members.component.scss'
 })

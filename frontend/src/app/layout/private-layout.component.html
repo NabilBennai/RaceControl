@@ -1,26 +1,33 @@
-<section class="mx-auto w-full px-4 py-8">
-  <div class="rc-panel rounded-3xl p-8">
-    <h1 class="inline-flex items-center gap-3 text-3xl font-semibold text-[var(--rc-text)]">
-      <fa-icon [icon]="dashboardIcon"></fa-icon>{{ 'app.title' | translate }}
-    </h1>
-    <p class="mt-3 text-[var(--rc-text-muted)]">{{ 'app.subtitle' | translate }}</p>
-
-    <div class="mt-7 grid gap-4 md:grid-cols-3">
-      <article class="rounded-2xl border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] p-5">
-        <h3 class="text-base font-semibold text-[var(--rc-text)]">{{ 'app.cardLeaguesTitle' | translate }}</h3>
-        <p class="mt-2 text-sm text-[var(--rc-text-muted)]">{{ 'app.cardLeaguesDescription' | translate }}</p>
-        <a class="mt-3 inline-flex text-sm font-medium text-cyan-600 hover:text-cyan-500 dark:text-cyan-300 dark:hover:text-cyan-200" routerLink="/leagues">
-          {{ 'league.manage' | translate }}
-        </a>
-      </article>
-      <article class="rounded-2xl border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] p-5">
-        <h3 class="text-base font-semibold text-[var(--rc-text)]">{{ 'app.cardCalendarTitle' | translate }}</h3>
-        <p class="mt-2 text-sm text-[var(--rc-text-muted)]">{{ 'app.cardCalendarDescription' | translate }}</p>
-      </article>
-      <article class="rounded-2xl border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] p-5">
-        <h3 class="text-base font-semibold text-[var(--rc-text)]">{{ 'app.cardStewardTitle' | translate }}</h3>
-        <p class="mt-2 text-sm text-[var(--rc-text-muted)]">{{ 'app.cardStewardDescription' | translate }}</p>
-      </article>
+<section class="rc-page rc-stagger">
+  <header class="rc-page-header">
+    <div>
+      <span class="rc-eyebrow">{{ 'paddock.dashboardEyebrow' | translate }}</span>
+      <h1 class="rc-display rc-page-title mt-4">{{ 'app.title' | translate }}</h1>
+      <p class="rc-page-subtitle">{{ 'app.subtitle' | translate }}</p>
     </div>
+  </header>
+
+  <div class="grid gap-6 lg:grid-cols-[2fr_1fr]">
+    <section class="grid gap-5 md:grid-cols-2">
+      <article class="rc-card">
+        <h3 class="rc-display text-2xl">{{ 'app.cardLeaguesTitle' | translate }}</h3>
+        <p class="text-sm text-[var(--rc-muted)] mt-2">{{ 'app.cardLeaguesDescription' | translate }}</p>
+        <a class="rc-link mt-4" routerLink="/leagues">{{ 'league.manage' | translate }}</a>
+      </article>
+      <article class="rc-card">
+        <h3 class="rc-display text-2xl">{{ 'app.cardCalendarTitle' | translate }}</h3>
+        <p class="text-sm text-[var(--rc-muted)] mt-2">{{ 'app.cardCalendarDescription' | translate }}</p>
+      </article>
+      <article class="rc-card md:col-span-2">
+        <h3 class="rc-display text-2xl">{{ 'app.cardStewardTitle' | translate }}</h3>
+        <p class="text-sm text-[var(--rc-muted)] mt-2">{{ 'app.cardStewardDescription' | translate }}</p>
+      </article>
+    </section>
+
+    <aside class="rc-panel p-6">
+      <p class="rc-eyebrow-bare">{{ 'paddock.pitBoard' | translate }}</p>
+      <p class="rc-display text-3xl mt-3">{{ 'nav.brand' | translate }}</p>
+      <p class="text-sm text-[var(--rc-muted)] mt-3">{{ 'home.subtitle' | translate }}</p>
+    </aside>
   </div>
 </section>
