@@ -90,6 +90,11 @@ export const routes: Routes = [
         loadComponent: () => import('./features/results/race-results-edit.component').then((m) => m.RaceResultsEditComponent)
       },
       {
+        path: 'races/:raceId/results/import',
+        canActivate: [authGuard],
+        loadComponent: () => import('./features/results/race-results-import.component').then((m) => m.RaceResultsImportComponent)
+      },
+      {
         path: 'admin',
         canActivate: [authGuard, adminGuard],
         loadComponent: () => import('./layout/admin-layout.component').then((m) => m.AdminLayoutComponent)

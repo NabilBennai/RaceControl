@@ -344,6 +344,24 @@
       "deleteFailed": "Unable to delete results."
     }
   },
+  "import": {
+    "navAction": "CSV import",
+    "title": "CSV results import",
+    "subtitle": "Upload, preview and confirm",
+    "backToRace": "Back to race",
+    "downloadTemplate": "Download CSV template",
+    "uploadCsv": "Import CSV",
+    "uploading": "Uploading...",
+    "confirmAction": "Confirm import",
+    "createdTitle": "CSV uploaded",
+    "createdMessage": "Preview generated.",
+    "confirmedTitle": "Import confirmed",
+    "confirmedMessage": "Results have been applied.",
+    "errors": {
+      "uploadFailed": "Unable to upload CSV.",
+      "confirmFailed": "Unable to confirm import."
+    }
+  },
   "nav": {
     "brand": "RaceControl",
     "home": "Home",
