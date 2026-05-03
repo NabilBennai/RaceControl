@@ -362,6 +362,23 @@
       "confirmFailed": "Impossible de confirmer l'import."
     }
   },
+  "standing": {
+    "manageAction": "Classements",
+    "title": "Classements saison",
+    "backToSeason": "Retour à la saison",
+    "driversTitle": "Classement pilotes",
+    "teamsTitle": "Classement équipes",
+    "recalculateAction": "Recalculer",
+    "recalculatedTitle": "Classements recalculés",
+    "recalculatedMessage": "Les classements pilotes et équipes ont été mis à jour.",
+    "emptyDrivers": "Aucun classement pilote disponible.",
+    "emptyTeams": "Aucun classement équipe disponible.",
+    "errors": {
+      "loadDriversFailed": "Impossible de charger le classement pilotes.",
+      "loadTeamsFailed": "Impossible de charger le classement équipes.",
+      "recalculateFailed": "Impossible de recalculer les classements."
+    }
+  },
   "nav": {
     "brand": "RaceControl",
     "home": "Accueil",

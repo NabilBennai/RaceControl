@@ -75,6 +75,11 @@ export const routes: Routes = [
         loadComponent: () => import('./features/races/season-calendar.component').then((m) => m.SeasonCalendarComponent)
       },
       {
+        path: 'seasons/:seasonId/standings',
+        canActivate: [authGuard],
+        loadComponent: () => import('./features/standings/season-standings.component').then((m) => m.SeasonStandingsComponent)
+      },
+      {
         path: 'races/:raceId',
         canActivate: [authGuard],
         loadComponent: () => import('./features/races/race-detail.component').then((m) => m.RaceDetailComponent)

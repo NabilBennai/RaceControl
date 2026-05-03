@@ -27,6 +27,7 @@
           <button class="rc-btn-ghost" type="button" (click)="finish()">{{ 'season.finishAction' | translate }}</button>
           <a class="rc-btn-ghost" [routerLink]="['/seasons', season.id, 'teams']">{{ 'team.manageAction' | translate }}</a>
           <a class="rc-btn-ghost" [routerLink]="['/seasons', season.id, 'calendar']">{{ 'race.manageAction' | translate }}</a>
+          <a class="rc-btn-ghost" [routerLink]="['/seasons', season.id, 'standings']">{{ 'standing.manageAction' | translate }}</a>
           <a class="rc-link-quiet text-sm ml-auto" [routerLink]="['/leagues', season.leagueId, 'seasons']">&larr; {{ 'season.backToList' | translate }}</a>
         </div>
       </form>

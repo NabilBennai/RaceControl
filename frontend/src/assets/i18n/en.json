@@ -362,6 +362,23 @@
       "confirmFailed": "Unable to confirm import."
     }
   },
+  "standing": {
+    "manageAction": "Standings",
+    "title": "Season standings",
+    "backToSeason": "Back to season",
+    "driversTitle": "Driver standings",
+    "teamsTitle": "Team standings",
+    "recalculateAction": "Recalculate",
+    "recalculatedTitle": "Standings recalculated",
+    "recalculatedMessage": "Driver and team standings were updated.",
+    "emptyDrivers": "No driver standings yet.",
+    "emptyTeams": "No team standings yet.",
+    "errors": {
+      "loadDriversFailed": "Unable to load driver standings.",
+      "loadTeamsFailed": "Unable to load team standings.",
+      "recalculateFailed": "Unable to recalculate standings."
+    }
+  },
   "nav": {
     "brand": "RaceControl",
     "home": "Home",

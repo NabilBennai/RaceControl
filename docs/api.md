@@ -117,3 +117,9 @@ Valeurs multiples possibles, séparées par des virgules.
 - `GET /api/imports/{importId}`
 - `POST /api/imports/{importId}/confirm`
 - `GET /api/results/template.csv` (template CSV à télécharger)
+
+## Classements automatiques (US-11)
+
+- `GET /api/seasons/{seasonId}/standings/drivers`
+- `GET /api/seasons/{seasonId}/standings/teams`
+- `POST /api/seasons/{seasonId}/standings/recalculate`
