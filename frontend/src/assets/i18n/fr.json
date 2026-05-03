@@ -232,6 +232,81 @@
       "membersLoadFailed": "Impossible de charger les pilotes de la ligue."
     }
   },
+  "race": {
+    "manageAction": "Calendrier",
+    "calendarTitle": "Calendrier de course",
+    "detailTitle": "Détail de la course",
+    "loading": "Chargement de la course...",
+    "backToSeason": "Retour à la saison",
+    "backToCalendar": "Retour au calendrier",
+    "createTitle": "Créer une course",
+    "createAction": "Créer la course",
+    "updateAction": "Mettre à jour",
+    "deleteAction": "Supprimer",
+    "track": "Circuit",
+    "date": "Date",
+    "time": "Heure",
+    "format": "Format",
+    "laps": "Nombre de tours",
+    "durationMinutes": "Durée (minutes)",
+    "weather": "Météo",
+    "carCategory": "Catégorie voiture",
+    "emptyList": "Aucune course planifiée.",
+    "createdTitle": "Course créée",
+    "createdMessage": "La course a été ajoutée au calendrier.",
+    "updatedTitle": "Course mise à jour",
+    "updatedMessage": "La course a été mise à jour.",
+    "deletedTitle": "Course supprimée",
+    "deletedMessage": "La course a été supprimée.",
+    "statusUpdatedTitle": "Statut mis à jour",
+    "statusUpdatedMessage": "Le statut de la course a été modifié.",
+    "status": {
+      "SCHEDULED": "Planifiée",
+      "REGISTRATION_OPEN": "Inscriptions ouvertes",
+      "LIVE": "En direct",
+      "FINISHED": "Terminée",
+      "CANCELLED": "Annulée"
+    },
+    "errors": {
+      "formInvalid": "Vérifiez les champs de la course.",
+      "loadSeasonFailed": "Impossible de charger la saison.",
+      "listFailed": "Impossible de charger les courses.",
+      "createFailed": "Impossible de créer la course.",
+      "loadFailed": "Impossible de charger la course.",
+      "updateFailed": "Impossible de mettre à jour la course.",
+      "deleteFailed": "Impossible de supprimer la course.",
+      "statusFailed": "Impossible de changer le statut de la course."
+    }
+  },
+  "registration": {
+    "title": "Inscriptions pilotes",
+    "car": "Voiture",
+    "number": "Numéro",
+    "team": "Équipe",
+    "noTeam": "Sans équipe",
+    "createAction": "S'inscrire",
+    "deleteMineAction": "Se désinscrire",
+    "emptyList": "Aucune inscription.",
+    "createdTitle": "Inscription validée",
+    "createdMessage": "Votre inscription a été enregistrée.",
+    "deletedTitle": "Inscription supprimée",
+    "deletedMessage": "Votre inscription a été retirée.",
+    "statusUpdatedTitle": "Statut mis à jour",
+    "statusUpdatedMessage": "Le statut de l'inscription a été mis à jour.",
+    "status": {
+      "CONFIRMED": "Confirmée",
+      "WAITLISTED": "Liste d'attente",
+      "CANCELLED": "Annulée",
+      "REJECTED": "Refusée"
+    },
+    "errors": {
+      "formInvalid": "Vérifiez les champs d'inscription.",
+      "listFailed": "Impossible de charger les inscriptions.",
+      "createFailed": "Impossible de créer l'inscription.",
+      "deleteFailed": "Impossible de supprimer l'inscription.",
+      "statusFailed": "Impossible de mettre à jour le statut."
+    }
+  },
   "nav": {
     "brand": "RaceControl",
     "home": "Accueil",

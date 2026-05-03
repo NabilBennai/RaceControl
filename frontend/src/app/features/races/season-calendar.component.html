@@ -1,0 +1,52 @@
+<section class="rc-page rc-stagger">
+  @if (!season) {
+    <div class="rc-empty">
+      <p class="rc-eyebrow-bare">{{ 'race.loading' | translate }}</p>
+    </div>
+  } @else {
+    <header class="rc-page-header">
+      <div>
+        <span class="rc-eyebrow">{{ 'race.calendarTitle' | translate }}</span>
+        <h1 class="rc-display rc-page-title mt-4">{{ season.name }}</h1>
+      </div>
+      <a class="rc-link-quiet text-sm" [routerLink]="['/seasons', season.id]">&larr; {{ 'race.backToSeason' | translate }}</a>
+    </header>
+
+    <div class="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
+      <section>
+        @if (races.length === 0) {
+          <div class="rc-empty">{{ 'race.emptyList' | translate }}</div>
+        } @else {
+          <div class="grid gap-3">
+            @for (race of races; track race.id) {
+              <article class="rc-card">
+                <a class="rc-display text-2xl" [routerLink]="['/races', race.id]">{{ race.track }}</a>
+                <p class="rc-mono text-xs text-[var(--rc-muted)] mt-1">{{ race.raceDate }} {{ race.raceTime }}</p>
+                <p class="text-sm text-[var(--rc-ink-soft)] mt-2">{{ race.format }} · {{ race.weather }} · {{ race.carCategory }}</p>
+                <div class="flex items-center gap-2 mt-3">
+                  <span class="rc-badge">{{ 'race.status.' + race.status | translate }}</span>
+                  <button class="rc-btn-danger ml-auto" type="button" (click)="deleteRace(race.id)">{{ 'race.deleteAction' | translate }}</button>
+                </div>
+              </article>
+            }
+          </div>
+        }
+      </section>
+
+      <aside class="rc-panel p-7 h-fit">
+        <h2 class="rc-display text-2xl">{{ 'race.createTitle' | translate }}</h2>
+        <form class="mt-6 space-y-4" [formGroup]="form" (ngSubmit)="createRace()">
+          <label class="rc-field"><span class="rc-field-label">{{ 'race.track' | translate }}</span><input class="rc-input" type="text" formControlName="track"/></label>
+          <label class="rc-field"><span class="rc-field-label">{{ 'race.date' | translate }}</span><input class="rc-input" type="date" formControlName="raceDate"/></label>
+          <label class="rc-field"><span class="rc-field-label">{{ 'race.time' | translate }}</span><input class="rc-input" type="time" formControlName="raceTime"/></label>
+          <label class="rc-field"><span class="rc-field-label">{{ 'race.format' | translate }}</span><input class="rc-input" type="text" formControlName="format"/></label>
+          <label class="rc-field"><span class="rc-field-label">{{ 'race.laps' | translate }}</span><input class="rc-input" type="number" formControlName="laps"/></label>
+          <label class="rc-field"><span class="rc-field-label">{{ 'race.durationMinutes' | translate }}</span><input class="rc-input" type="number" formControlName="durationMinutes"/></label>
+          <label class="rc-field"><span class="rc-field-label">{{ 'race.weather' | translate }}</span><input class="rc-input" type="text" formControlName="weather"/></label>
+          <label class="rc-field"><span class="rc-field-label">{{ 'race.carCategory' | translate }}</span><input class="rc-input" type="text" formControlName="carCategory"/></label>
+          <button class="rc-btn-primary w-full" type="submit">{{ 'race.createAction' | translate }}</button>
+        </form>
+      </aside>
+    </div>
+  }
+</section>

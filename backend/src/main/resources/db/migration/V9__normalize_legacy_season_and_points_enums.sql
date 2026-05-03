@@ -1,0 +1,23 @@
+UPDATE seasons
+SET status = 'DRAFT'
+WHERE status = 'UPCOMING';
+
+UPDATE seasons
+SET status = 'DRAFT'
+WHERE status NOT IN ('DRAFT', 'ACTIVE', 'FINISHED', 'ARCHIVED');
+
+UPDATE point_rules
+SET type = 'FINISH_POSITION'
+WHERE type = 'RACE_POSITION';
+
+UPDATE point_rules
+SET type = 'PARTICIPATION'
+WHERE type = 'DRIVER_OF_THE_DAY';
+
+UPDATE point_rules
+SET type = 'PARTICIPATION'
+WHERE type NOT IN ('FINISH_POSITION', 'POLE_POSITION', 'FASTEST_LAP', 'CLEAN_RACE', 'PARTICIPATION');
+
+UPDATE point_rules
+SET position_rank = NULL
+WHERE type <> 'FINISH_POSITION';
