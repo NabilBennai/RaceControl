@@ -232,6 +232,52 @@
       "membersLoadFailed": "Unable to load league drivers."
     }
   },
+  "race": {
+    "manageAction": "Calendar",
+    "calendarTitle": "Race calendar",
+    "detailTitle": "Race detail",
+    "loading": "Loading race...",
+    "backToSeason": "Back to season",
+    "backToCalendar": "Back to calendar",
+    "createTitle": "Create race",
+    "createAction": "Create race",
+    "updateAction": "Update",
+    "deleteAction": "Delete",
+    "track": "Track",
+    "date": "Date",
+    "time": "Time",
+    "format": "Format",
+    "laps": "Laps",
+    "durationMinutes": "Duration (minutes)",
+    "weather": "Weather",
+    "carCategory": "Car category",
+    "emptyList": "No race scheduled.",
+    "createdTitle": "Race created",
+    "createdMessage": "Race has been added to the calendar.",
+    "updatedTitle": "Race updated",
+    "updatedMessage": "Race has been updated.",
+    "deletedTitle": "Race deleted",
+    "deletedMessage": "Race has been deleted.",
+    "statusUpdatedTitle": "Status updated",
+    "statusUpdatedMessage": "Race status has been updated.",
+    "status": {
+      "SCHEDULED": "Scheduled",
+      "REGISTRATION_OPEN": "Registration open",
+      "LIVE": "Live",
+      "FINISHED": "Finished",
+      "CANCELLED": "Cancelled"
+    },
+    "errors": {
+      "formInvalid": "Check race fields.",
+      "loadSeasonFailed": "Unable to load season.",
+      "listFailed": "Unable to load races.",
+      "createFailed": "Unable to create race.",
+      "loadFailed": "Unable to load race.",
+      "updateFailed": "Unable to update race.",
+      "deleteFailed": "Unable to delete race.",
+      "statusFailed": "Unable to update race status."
+    }
+  },
   "nav": {
     "brand": "RaceControl",
     "home": "Home",
