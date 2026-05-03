@@ -307,6 +307,43 @@
       "statusFailed": "Impossible de mettre à jour le statut."
     }
   },
+  "result": {
+    "loading": "Chargement des résultats...",
+    "editTitle": "Saisie des résultats",
+    "viewTitle": "Classement de la course",
+    "backToRace": "Retour à la course",
+    "editAction": "Éditer résultats",
+    "viewAction": "Voir résultats",
+    "saveAction": "Enregistrer les résultats",
+    "deleteAction": "Supprimer les résultats",
+    "driver": "Pilote",
+    "position": "Position",
+    "totalTime": "Temps total",
+    "bestLap": "Meilleur tour",
+    "polePosition": "Pole",
+    "incidents": "Incidents",
+    "statusLabel": "Statut",
+    "yes": "Oui",
+    "no": "Non",
+    "empty": "Aucun résultat saisi.",
+    "savedTitle": "Résultats enregistrés",
+    "savedMessage": "Les résultats de la course ont été sauvegardés.",
+    "deletedTitle": "Résultats supprimés",
+    "deletedMessage": "Les résultats de la course ont été supprimés.",
+    "status": {
+      "CLASSIFIED": "Classé",
+      "DNF": "DNF",
+      "DNS": "DNS",
+      "DSQ": "DSQ"
+    },
+    "errors": {
+      "loadRaceFailed": "Impossible de charger la course.",
+      "loadRegistrationsFailed": "Impossible de charger les inscrits.",
+      "loadFailed": "Impossible de charger les résultats.",
+      "saveFailed": "Impossible d'enregistrer les résultats.",
+      "deleteFailed": "Impossible de supprimer les résultats."
+    }
+  },
   "nav": {
     "brand": "RaceControl",
     "home": "Accueil",

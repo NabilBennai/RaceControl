@@ -307,6 +307,43 @@
       "statusFailed": "Unable to update status."
     }
   },
+  "result": {
+    "loading": "Loading results...",
+    "editTitle": "Manual result entry",
+    "viewTitle": "Race standings",
+    "backToRace": "Back to race",
+    "editAction": "Edit results",
+    "viewAction": "View results",
+    "saveAction": "Save results",
+    "deleteAction": "Delete results",
+    "driver": "Driver",
+    "position": "Position",
+    "totalTime": "Total time",
+    "bestLap": "Best lap",
+    "polePosition": "Pole",
+    "incidents": "Incidents",
+    "statusLabel": "Status",
+    "yes": "Yes",
+    "no": "No",
+    "empty": "No result entered.",
+    "savedTitle": "Results saved",
+    "savedMessage": "Race results have been saved.",
+    "deletedTitle": "Results deleted",
+    "deletedMessage": "Race results have been deleted.",
+    "status": {
+      "CLASSIFIED": "Classified",
+      "DNF": "DNF",
+      "DNS": "DNS",
+      "DSQ": "DSQ"
+    },
+    "errors": {
+      "loadRaceFailed": "Unable to load race.",
+      "loadRegistrationsFailed": "Unable to load registrations.",
+      "loadFailed": "Unable to load results.",
+      "saveFailed": "Unable to save results.",
+      "deleteFailed": "Unable to delete results."
+    }
+  },
   "nav": {
     "brand": "RaceControl",
     "home": "Home",
