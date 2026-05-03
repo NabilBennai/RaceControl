@@ -164,6 +164,32 @@
       "finishFailed": "Impossible de terminer la saison."
     }
   },
+  "pointsystem": {
+    "title": "Barème de points",
+    "subtitle": "Configure les règles de points de la saison.",
+    "name": "Nom du barème",
+    "ruleType": "Type de règle",
+    "rank": "Rang",
+    "points": "Points",
+    "addRule": "Ajouter une règle",
+    "applyPreset": "Appliquer preset du jeu",
+    "removeRule": "Supprimer",
+    "saveAction": "Enregistrer le barème",
+    "savedTitle": "Barème enregistré",
+    "savedMessage": "Le barème de points a été mis à jour.",
+    "presetAppliedTitle": "Preset appliqué",
+    "presetAppliedMessage": "Le preset du jeu de la ligue a été chargé.",
+    "rule": {
+      "FINISH_POSITION": "Position finale",
+      "POLE_POSITION": "Pole position",
+      "FASTEST_LAP": "Meilleur tour",
+      "CLEAN_RACE": "Course propre",
+      "PARTICIPATION": "Participation"
+    },
+    "errors": {
+      "saveFailed": "Impossible d'enregistrer le barème."
+    }
+  },
   "nav": {
     "brand": "RaceControl",
     "home": "Accueil",

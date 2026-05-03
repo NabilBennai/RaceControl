@@ -136,6 +136,7 @@ public class SeasonService {
     return new SeasonDtos.SeasonResponse(
       season.getId(),
       season.getLeague().getId(),
+      season.getLeague().getGamePlatform(),
       season.getName(),
       season.getStartDate(),
       season.getEndDate(),

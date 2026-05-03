@@ -164,6 +164,32 @@
       "finishFailed": "Unable to finish season."
     }
   },
+  "pointsystem": {
+    "title": "Point system",
+    "subtitle": "Configure season point rules.",
+    "name": "Point system name",
+    "ruleType": "Rule type",
+    "rank": "Rank",
+    "points": "Points",
+    "addRule": "Add rule",
+    "applyPreset": "Apply game preset",
+    "removeRule": "Remove",
+    "saveAction": "Save point system",
+    "savedTitle": "Point system saved",
+    "savedMessage": "Point system has been updated.",
+    "presetAppliedTitle": "Preset applied",
+    "presetAppliedMessage": "League game preset has been loaded.",
+    "rule": {
+      "FINISH_POSITION": "Finish position",
+      "POLE_POSITION": "Pole position",
+      "FASTEST_LAP": "Fastest lap",
+      "CLEAN_RACE": "Clean race",
+      "PARTICIPATION": "Participation"
+    },
+    "errors": {
+      "saveFailed": "Unable to save point system."
+    }
+  },
   "nav": {
     "brand": "RaceControl",
     "home": "Home",

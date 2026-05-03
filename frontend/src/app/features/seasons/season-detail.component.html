@@ -29,5 +29,50 @@
         </div>
       </form>
     </div>
+
+    <div class="rc-panel p-7 md:p-10 mt-6">
+      <h2 class="rc-display text-2xl">{{ 'pointsystem.title' | translate }}</h2>
+      <p class="text-sm text-[var(--rc-muted)] mt-2">{{ 'pointsystem.subtitle' | translate }}</p>
+
+      <form class="space-y-4 mt-6" [formGroup]="pointSystemForm" (ngSubmit)="savePointSystem()">
+        <label class="rc-field">
+          <span class="rc-field-label"><span>{{ 'pointsystem.name' | translate }}</span><span class="rc-field-label-index">PS</span></span>
+          <input class="rc-input" type="text" formControlName="name"/>
+        </label>
+
+        <div formArrayName="rules" class="space-y-3">
+          @for (rule of rules.controls; track $index) {
+            <div [formGroupName]="$index" class="grid gap-3 md:grid-cols-[1.4fr_1fr_1fr_auto] items-end">
+              <label class="rc-field">
+                <span class="rc-field-label"><span>{{ 'pointsystem.ruleType' | translate }}</span></span>
+                <select class="rc-input" formControlName="type">
+                  @for (type of ruleTypes; track type) {
+                    <option [value]="type">{{ 'pointsystem.rule.' + type | translate }}</option>
+                  }
+                </select>
+              </label>
+
+              <label class="rc-field">
+                <span class="rc-field-label"><span>{{ 'pointsystem.rank' | translate }}</span></span>
+                <input class="rc-input" type="number" formControlName="positionRank"/>
+              </label>
+
+              <label class="rc-field">
+                <span class="rc-field-label"><span>{{ 'pointsystem.points' | translate }}</span></span>
+                <input class="rc-input" type="number" formControlName="points"/>
+              </label>
+
+              <button class="rc-btn-danger" type="button" (click)="removeRule($index)">{{ 'pointsystem.removeRule' | translate }}</button>
+            </div>
+          }
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <button class="rc-btn-ghost" type="button" (click)="addRule()">{{ 'pointsystem.addRule' | translate }}</button>
+          <button class="rc-btn-ghost" type="button" (click)="applyPreset()">{{ 'pointsystem.applyPreset' | translate }}</button>
+          <button class="rc-btn-primary" type="submit">{{ 'pointsystem.saveAction' | translate }}</button>
+        </div>
+      </form>
+    </div>
   }
 </section>
