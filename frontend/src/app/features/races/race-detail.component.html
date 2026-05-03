@@ -36,5 +36,54 @@
         </div>
       </form>
     </div>
+
+    <div class="rc-panel p-7 md:p-10 mt-6">
+      <h2 class="rc-display text-2xl">{{ 'registration.title' | translate }}</h2>
+      <form class="space-y-4 mt-4" [formGroup]="registrationForm" (ngSubmit)="register()">
+        <div class="grid gap-4 md:grid-cols-3">
+          <label class="rc-field"><span class="rc-field-label">{{ 'registration.car' | translate }}</span><input class="rc-input" type="text" formControlName="car"/></label>
+          <label class="rc-field"><span class="rc-field-label">{{ 'registration.number' | translate }}</span><input class="rc-input" type="text" formControlName="number"/></label>
+          <label class="rc-field">
+            <span class="rc-field-label">{{ 'registration.team' | translate }}</span>
+            <select class="rc-input" formControlName="teamId">
+              <option value="">{{ 'registration.noTeam' | translate }}</option>
+              @for (team of teams; track team.id) {
+                <option [value]="team.id">{{ team.name }}</option>
+              }
+            </select>
+          </label>
+        </div>
+        <div class="flex gap-2">
+          <button class="rc-btn-primary" type="submit">{{ 'registration.createAction' | translate }}</button>
+          <button class="rc-btn-ghost" type="button" (click)="unregister()">{{ 'registration.deleteMineAction' | translate }}</button>
+        </div>
+      </form>
+
+      <div class="mt-6">
+        @if (registrations.length === 0) {
+          <p class="text-sm text-[var(--rc-muted)]">{{ 'registration.emptyList' | translate }}</p>
+        } @else {
+          <div class="grid gap-3">
+            @for (row of registrations; track row.id) {
+              <article class="rc-card">
+                <div class="flex items-center gap-2">
+                  <p class="rc-display text-xl">{{ row.username }}</p>
+                  @if (isMine(row)) {
+                    <span class="rc-badge">ME</span>
+                  }
+                  <span class="rc-badge ml-auto">{{ 'registration.status.' + row.status | translate }}</span>
+                </div>
+                <p class="text-sm text-[var(--rc-ink-soft)] mt-1">{{ row.car }} #{{ row.number }} @if (row.teamName) { · {{ row.teamName }} }</p>
+                <div class="flex flex-wrap gap-2 mt-3">
+                  @for (st of registrationStatuses; track st) {
+                    <button class="rc-btn-ghost" type="button" (click)="updateRegistrationStatus(row.id, st)">{{ 'registration.status.' + st | translate }}</button>
+                  }
+                </div>
+              </article>
+            }
+          </div>
+        }
+      </div>
+    </div>
   }
 </section>

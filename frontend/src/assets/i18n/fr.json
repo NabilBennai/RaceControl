@@ -278,6 +278,35 @@
       "statusFailed": "Impossible de changer le statut de la course."
     }
   },
+  "registration": {
+    "title": "Inscriptions pilotes",
+    "car": "Voiture",
+    "number": "Numéro",
+    "team": "Équipe",
+    "noTeam": "Sans équipe",
+    "createAction": "S'inscrire",
+    "deleteMineAction": "Se désinscrire",
+    "emptyList": "Aucune inscription.",
+    "createdTitle": "Inscription validée",
+    "createdMessage": "Votre inscription a été enregistrée.",
+    "deletedTitle": "Inscription supprimée",
+    "deletedMessage": "Votre inscription a été retirée.",
+    "statusUpdatedTitle": "Statut mis à jour",
+    "statusUpdatedMessage": "Le statut de l'inscription a été mis à jour.",
+    "status": {
+      "CONFIRMED": "Confirmée",
+      "WAITLISTED": "Liste d'attente",
+      "CANCELLED": "Annulée",
+      "REJECTED": "Refusée"
+    },
+    "errors": {
+      "formInvalid": "Vérifiez les champs d'inscription.",
+      "listFailed": "Impossible de charger les inscriptions.",
+      "createFailed": "Impossible de créer l'inscription.",
+      "deleteFailed": "Impossible de supprimer l'inscription.",
+      "statusFailed": "Impossible de mettre à jour le statut."
+    }
+  },
   "nav": {
     "brand": "RaceControl",
     "home": "Accueil",

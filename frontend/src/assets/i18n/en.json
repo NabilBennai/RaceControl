@@ -278,6 +278,35 @@
       "statusFailed": "Unable to update race status."
     }
   },
+  "registration": {
+    "title": "Driver registrations",
+    "car": "Car",
+    "number": "Number",
+    "team": "Team",
+    "noTeam": "No team",
+    "createAction": "Register",
+    "deleteMineAction": "Unregister",
+    "emptyList": "No registrations.",
+    "createdTitle": "Registration saved",
+    "createdMessage": "Your registration has been saved.",
+    "deletedTitle": "Registration removed",
+    "deletedMessage": "Your registration has been removed.",
+    "statusUpdatedTitle": "Status updated",
+    "statusUpdatedMessage": "Registration status has been updated.",
+    "status": {
+      "CONFIRMED": "Confirmed",
+      "WAITLISTED": "Waitlisted",
+      "CANCELLED": "Cancelled",
+      "REJECTED": "Rejected"
+    },
+    "errors": {
+      "formInvalid": "Check registration fields.",
+      "listFailed": "Unable to load registrations.",
+      "createFailed": "Unable to create registration.",
+      "deleteFailed": "Unable to delete registration.",
+      "statusFailed": "Unable to update status."
+    }
+  },
   "nav": {
     "brand": "RaceControl",
     "home": "Home",

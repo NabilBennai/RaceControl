@@ -96,3 +96,10 @@ Valeurs multiples possibles, séparées par des virgules.
 - `PUT /api/races/{raceId}`
 - `DELETE /api/races/{raceId}`
 - `PATCH /api/races/{raceId}/status`
+
+## Inscriptions course (US-08)
+
+- `POST /api/races/{raceId}/registrations`
+- `GET /api/races/{raceId}/registrations`
+- `DELETE /api/races/{raceId}/registrations/me`
+- `PATCH /api/races/{raceId}/registrations/{registrationId}/status`
