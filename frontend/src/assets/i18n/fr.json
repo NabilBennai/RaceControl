@@ -123,6 +123,46 @@
       "rejectFailed": "Impossible de refuser la demande."
     }
   },
+  "season": {
+    "manageAction": "Saisons",
+    "listTitle": "Saisons de la ligue",
+    "listSubtitle": "Crée et gère les saisons du championnat.",
+    "createTitle": "Créer une saison",
+    "createAction": "Créer la saison",
+    "name": "Nom de la saison",
+    "startDate": "Date de début",
+    "endDate": "Date de fin",
+    "statusLabel": "Statut",
+    "updateAction": "Mettre à jour",
+    "activateAction": "Activer",
+    "finishAction": "Terminer",
+    "backToList": "Retour aux saisons",
+    "emptyList": "Aucune saison pour cette ligue.",
+    "loading": "Chargement de la saison...",
+    "createdTitle": "Saison créée",
+    "createdMessage": "La saison a été créée en brouillon.",
+    "updatedTitle": "Saison mise à jour",
+    "updatedMessage": "La saison a été modifiée.",
+    "activatedTitle": "Saison activée",
+    "activatedMessage": "La saison est maintenant active.",
+    "finishedTitle": "Saison terminée",
+    "finishedMessage": "La saison est marquée comme terminée.",
+    "status": {
+      "DRAFT": "Brouillon",
+      "ACTIVE": "Active",
+      "FINISHED": "Terminée",
+      "ARCHIVED": "Archivée"
+    },
+    "errors": {
+      "formInvalid": "Vérifiez les champs de la saison.",
+      "listFailed": "Impossible de charger les saisons.",
+      "createFailed": "Impossible de créer la saison.",
+      "loadFailed": "Impossible de charger la saison.",
+      "updateFailed": "Impossible de mettre à jour la saison.",
+      "activateFailed": "Impossible d'activer la saison.",
+      "finishFailed": "Impossible de terminer la saison."
+    }
+  },
   "nav": {
     "brand": "RaceControl",
     "home": "Accueil",

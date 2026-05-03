@@ -1,0 +1,40 @@
+<section class="mx-auto w-full max-w-6xl px-4 py-8">
+  <div class="grid gap-6 lg:grid-cols-2">
+    <div class="rc-panel rounded-3xl p-7">
+      <h1 class="text-2xl font-semibold text-[var(--rc-text)]">{{ 'season.listTitle' | translate }}</h1>
+      <p class="mt-2 text-sm text-[var(--rc-text-muted)]">{{ 'season.listSubtitle' | translate }}</p>
+
+      <div class="mt-6 space-y-3">
+        @if (seasons.length === 0) {
+          <p class="text-sm text-[var(--rc-text-muted)]">{{ 'season.emptyList' | translate }}</p>
+        } @else {
+          @for (season of seasons; track season.id) {
+            <a [routerLink]="['/seasons', season.id]" class="block rounded-xl border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] p-4 hover:border-cyan-500/60">
+              <p class="font-medium text-[var(--rc-text)]">{{ season.name }}</p>
+              <p class="mt-1 text-xs text-[var(--rc-text-muted)]">{{ season.startDate }} → {{ season.endDate }} · {{ 'season.status.' + season.status | translate }}</p>
+            </a>
+          }
+        }
+      </div>
+    </div>
+
+    <div class="rc-panel rounded-3xl p-7">
+      <h2 class="text-xl font-semibold text-[var(--rc-text)]">{{ 'season.createTitle' | translate }}</h2>
+      <form class="mt-5 space-y-4" [formGroup]="form" (ngSubmit)="createSeason()">
+        <label class="block text-sm text-[var(--rc-text-muted)]">
+          <span>{{ 'season.name' | translate }}</span>
+          <input class="rc-input mt-2" type="text" formControlName="name"/>
+        </label>
+        <label class="block text-sm text-[var(--rc-text-muted)]">
+          <span>{{ 'season.startDate' | translate }}</span>
+          <input class="rc-input mt-2" type="date" formControlName="startDate"/>
+        </label>
+        <label class="block text-sm text-[var(--rc-text-muted)]">
+          <span>{{ 'season.endDate' | translate }}</span>
+          <input class="rc-input mt-2" type="date" formControlName="endDate"/>
+        </label>
+        <button class="rc-btn-primary" type="submit">{{ 'season.createAction' | translate }}</button>
+      </form>
+    </div>
+  </div>
+</section>

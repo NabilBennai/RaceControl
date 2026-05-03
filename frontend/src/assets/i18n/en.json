@@ -123,6 +123,46 @@
       "rejectFailed": "Unable to reject request."
     }
   },
+  "season": {
+    "manageAction": "Seasons",
+    "listTitle": "League seasons",
+    "listSubtitle": "Create and manage championship seasons.",
+    "createTitle": "Create a season",
+    "createAction": "Create season",
+    "name": "Season name",
+    "startDate": "Start date",
+    "endDate": "End date",
+    "statusLabel": "Status",
+    "updateAction": "Update",
+    "activateAction": "Activate",
+    "finishAction": "Finish",
+    "backToList": "Back to seasons",
+    "emptyList": "No season for this league.",
+    "loading": "Loading season...",
+    "createdTitle": "Season created",
+    "createdMessage": "Season was created as draft.",
+    "updatedTitle": "Season updated",
+    "updatedMessage": "Season has been updated.",
+    "activatedTitle": "Season activated",
+    "activatedMessage": "Season is now active.",
+    "finishedTitle": "Season finished",
+    "finishedMessage": "Season is marked as finished.",
+    "status": {
+      "DRAFT": "Draft",
+      "ACTIVE": "Active",
+      "FINISHED": "Finished",
+      "ARCHIVED": "Archived"
+    },
+    "errors": {
+      "formInvalid": "Check season fields.",
+      "listFailed": "Unable to load seasons.",
+      "createFailed": "Unable to create season.",
+      "loadFailed": "Unable to load season.",
+      "updateFailed": "Unable to update season.",
+      "activateFailed": "Unable to activate season.",
+      "finishFailed": "Unable to finish season."
+    }
+  },
   "nav": {
     "brand": "RaceControl",
     "home": "Home",

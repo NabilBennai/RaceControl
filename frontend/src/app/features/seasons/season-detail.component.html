@@ -1,0 +1,32 @@
+<section class="mx-auto w-full max-w-4xl px-4 py-8">
+  @if (!season) {
+    <p class="text-sm text-[var(--rc-text-muted)]">{{ 'season.loading' | translate }}</p>
+  } @else {
+    <div class="rc-panel rounded-3xl p-7">
+      <h1 class="text-2xl font-semibold text-[var(--rc-text)]">{{ season.name }}</h1>
+      <p class="mt-2 text-sm text-[var(--rc-text-muted)]">{{ 'season.statusLabel' | translate }}: {{ 'season.status.' + season.status | translate }}</p>
+
+      <form class="mt-6 space-y-4" [formGroup]="form" (ngSubmit)="update()">
+        <label class="block text-sm text-[var(--rc-text-muted)]">
+          <span>{{ 'season.name' | translate }}</span>
+          <input class="rc-input mt-2" type="text" formControlName="name"/>
+        </label>
+        <label class="block text-sm text-[var(--rc-text-muted)]">
+          <span>{{ 'season.startDate' | translate }}</span>
+          <input class="rc-input mt-2" type="date" formControlName="startDate"/>
+        </label>
+        <label class="block text-sm text-[var(--rc-text-muted)]">
+          <span>{{ 'season.endDate' | translate }}</span>
+          <input class="rc-input mt-2" type="date" formControlName="endDate"/>
+        </label>
+
+        <div class="flex flex-wrap gap-2">
+          <button class="rc-btn-primary" type="submit">{{ 'season.updateAction' | translate }}</button>
+          <button class="rc-btn-ghost" type="button" (click)="activate()">{{ 'season.activateAction' | translate }}</button>
+          <button class="rc-btn-ghost" type="button" (click)="finish()">{{ 'season.finishAction' | translate }}</button>
+          <a class="rc-btn-ghost inline-flex" [routerLink]="['/leagues', season.leagueId, 'seasons']">{{ 'season.backToList' | translate }}</a>
+        </div>
+      </form>
+    </div>
+  }
+</section>

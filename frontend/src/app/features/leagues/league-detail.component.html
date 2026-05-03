@@ -27,6 +27,7 @@
       <div class="mt-6 flex items-center gap-3">
         <a class="rc-btn-ghost inline-flex" routerLink="/leagues">{{ 'league.backToList' | translate }}</a>
         <a class="rc-btn-ghost inline-flex" [routerLink]="['/leagues', league.id, 'join']">{{ 'league.join.action' | translate }}</a>
+        <a class="rc-btn-ghost inline-flex" [routerLink]="['/leagues', league.id, 'seasons']">{{ 'season.manageAction' | translate }}</a>
         @if (canEdit) {
           <a class="rc-btn-ghost inline-flex" [routerLink]="['/leagues', league.id, 'members']">{{ 'league.members.action' | translate }}</a>
         }
