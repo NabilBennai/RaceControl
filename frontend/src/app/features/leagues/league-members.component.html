@@ -1,0 +1,30 @@
+<section class="mx-auto w-full max-w-5xl px-4 py-8">
+  <div class="rc-panel rounded-3xl p-7">
+    <app-league-header title="league.members.title" subtitle="league.members.subtitle"></app-league-header>
+
+    @if (members.length === 0) {
+      <p class="text-sm text-[var(--rc-text-muted)]">{{ 'league.members.empty' | translate }}</p>
+    } @else {
+      <div class="space-y-3">
+        @for (member of members; track member.id) {
+          <article class="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] p-4">
+            <div>
+              <p class="font-medium text-[var(--rc-text)]">{{ member.username }} <span class="text-xs text-[var(--rc-text-muted)]">({{ member.email }})</span></p>
+              <p class="text-xs text-[var(--rc-text-muted)]">{{ member.role }} - {{ 'league.members.status.' + member.status | translate }}</p>
+            </div>
+            @if (member.status === 'PENDING') {
+              <div class="flex items-center gap-2">
+                <button (click)="approve(member.id)" class="rc-btn-primary" type="button">{{ 'league.members.approve' | translate }}</button>
+                <button (click)="reject(member.id)" class="rounded-lg bg-slate-700 px-3 py-2 text-sm text-white hover:bg-slate-600" type="button">{{ 'league.members.reject' | translate }}</button>
+              </div>
+            }
+          </article>
+        }
+      </div>
+    }
+
+    <a class="mt-6 inline-flex text-sm text-[var(--rc-text-muted)] hover:text-[var(--rc-text)]" [routerLink]="['/leagues', leagueId]">
+      {{ 'league.backToDetails' | translate }}
+    </a>
+  </div>
+</section>

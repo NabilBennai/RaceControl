@@ -27,6 +27,10 @@ class LeagueServiceTest {
   @Mock
   private LeagueMemberRepository leagueMemberRepository;
   @Mock
+  private LeagueJoinRequestRepository leagueJoinRequestRepository;
+  @Mock
+  private LeagueInvitationCodeRepository leagueInvitationCodeRepository;
+  @Mock
   private UserRepository userRepository;
   @Mock
   private MessageSource messageSource;
@@ -43,6 +47,8 @@ class LeagueServiceTest {
     when(userRepository.findByEmail("pilot@example.com")).thenReturn(Optional.of(user));
     when(leagueRepository.save(any(League.class))).thenReturn(savedLeague);
     when(leagueMemberRepository.save(any(LeagueMember.class))).thenReturn(owner);
+    when(leagueInvitationCodeRepository.save(any(LeagueInvitationCode.class)))
+      .thenAnswer(invocation -> invocation.getArgument(0));
 
     LeagueDtos.LeagueResponse response = leagueService.create(
       new LeagueDtos.LeagueRequest("GT France", "Championnat GT3 pour pilotes francophones", GamePlatform.ACC, LeagueVisibility.PUBLIC),

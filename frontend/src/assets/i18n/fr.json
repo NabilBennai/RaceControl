@@ -67,8 +67,43 @@
     "delete": "Supprimer la ligue",
     "viewDetails": "Voir les détails",
     "backToList": "Retour à la liste",
+    "backToDetails": "Retour à la ligue",
+    "notMember": "Non membre",
+    "invitationCode": "Code d'invitation",
     "emptyList": "Aucune ligue pour le moment. Crée ta première ligue.",
     "loading": "Chargement de la ligue...",
+    "join": {
+      "action": "Rejoindre",
+      "title": "Rejoindre la ligue",
+      "subtitle": "Demande l'accès à une ligue publique ou utilise un code d'invitation.",
+      "publicTitle": "Demande publique",
+      "publicDescription": "Pour une ligue publique, une demande est envoyée aux admins.",
+      "publicAction": "Envoyer ma demande",
+      "codeTitle": "Code d'invitation",
+      "codeDescription": "Pour une ligue privée, saisis le code communiqué par l'organisateur.",
+      "codePlaceholder": "Ex: ABC123XYZ9",
+      "codeAction": "Rejoindre avec le code",
+      "requestTitle": "Demande envoyée",
+      "codeInvalidFormat": "Le format du code est invalide."
+    },
+    "members": {
+      "action": "Membres",
+      "title": "Membres de la ligue",
+      "subtitle": "Valide ou refuse les demandes d'inscription.",
+      "empty": "Aucune demande ou aucun membre à afficher.",
+      "approve": "Approuver",
+      "reject": "Refuser",
+      "approvedTitle": "Membre approuvé",
+      "approvedMessage": "La demande a été validée.",
+      "rejectedTitle": "Demande refusée",
+      "rejectedMessage": "La demande a été refusée.",
+      "status": {
+        "PENDING": "En attente",
+        "APPROVED": "Approuvé",
+        "REJECTED": "Refusé",
+        "BANNED": "Banni"
+      }
+    },
     "createdTitle": "Ligue créée",
     "createdMessage": "La ligue a été créée avec le rôle OWNER.",
     "updatedTitle": "Ligue mise à jour",
@@ -80,7 +115,12 @@
       "createFailed": "Impossible de créer la ligue.",
       "loadFailed": "Impossible de charger la ligue.",
       "updateFailed": "Impossible de mettre à jour la ligue.",
-      "deleteFailed": "Impossible de supprimer la ligue."
+      "deleteFailed": "Impossible de supprimer la ligue.",
+      "joinFailed": "Impossible d'envoyer la demande d'inscription.",
+      "joinByCodeFailed": "Impossible de rejoindre via ce code.",
+      "membersFailed": "Impossible de charger les membres.",
+      "approveFailed": "Impossible d'approuver la demande.",
+      "rejectFailed": "Impossible de refuser la demande."
     }
   },
   "nav": {

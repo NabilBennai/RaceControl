@@ -10,7 +10,7 @@
 
   <div class="mt-4 flex items-center justify-between text-xs text-[var(--rc-text-muted)]">
     <span>{{ 'league.platform' | translate }}: {{ league.gamePlatform }}</span>
-    <span>{{ 'league.myRole' | translate }}: {{ league.myRole }}</span>
+    <span>{{ 'league.myRole' | translate }}: {{ league.myRole ?? ('league.notMember' | translate) }}</span>
   </div>
 
   <a class="mt-4 inline-flex text-sm font-medium text-cyan-600 hover:text-cyan-500 dark:text-cyan-300 dark:hover:text-cyan-200"

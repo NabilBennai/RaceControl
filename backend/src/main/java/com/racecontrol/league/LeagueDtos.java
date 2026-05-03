@@ -4,6 +4,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+import java.time.Instant;
+
 public class LeagueDtos {
   public record LeagueRequest(
     @NotBlank @Size(min = 3, max = 120) String name,
@@ -19,7 +21,25 @@ public class LeagueDtos {
     String description,
     GamePlatform gamePlatform,
     LeagueVisibility visibility,
-    LeagueRole myRole
+    LeagueRole myRole,
+    String invitationCode
+  ) {
+  }
+
+  public record JoinByCodeRequest(@NotBlank String invitationCode) {
+  }
+
+  public record LeagueJoinResponse(Long leagueId, MembershipStatus status, String message) {
+  }
+
+  public record LeagueMemberResponse(
+    Long id,
+    Long userId,
+    String username,
+    String email,
+    LeagueRole role,
+    MembershipStatus status,
+    Instant requestedAt
   ) {
   }
 }

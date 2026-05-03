@@ -51,4 +51,43 @@ public class LeagueController {
   void delete(@PathVariable Long leagueId, Authentication authentication, Locale locale) {
     leagueService.delete(leagueId, authentication.getName(), locale);
   }
+
+  @PostMapping("/{leagueId}/join")
+  LeagueDtos.LeagueJoinResponse join(@PathVariable Long leagueId, Authentication authentication, Locale locale) {
+    return leagueService.join(leagueId, authentication.getName(), locale);
+  }
+
+  @PostMapping("/join-by-code")
+  LeagueDtos.LeagueJoinResponse joinByCode(
+    @Valid @RequestBody LeagueDtos.JoinByCodeRequest request,
+    Authentication authentication,
+    Locale locale
+  ) {
+    return leagueService.joinByCode(request, authentication.getName(), locale);
+  }
+
+  @GetMapping("/{leagueId}/members")
+  List<LeagueDtos.LeagueMemberResponse> members(@PathVariable Long leagueId, Authentication authentication, Locale locale) {
+    return leagueService.members(leagueId, authentication.getName(), locale);
+  }
+
+  @PatchMapping("/{leagueId}/members/{memberId}/approve")
+  LeagueDtos.LeagueMemberResponse approve(
+    @PathVariable Long leagueId,
+    @PathVariable Long memberId,
+    Authentication authentication,
+    Locale locale
+  ) {
+    return leagueService.approveMember(leagueId, memberId, authentication.getName(), locale);
+  }
+
+  @PatchMapping("/{leagueId}/members/{memberId}/reject")
+  LeagueDtos.LeagueMemberResponse reject(
+    @PathVariable Long leagueId,
+    @PathVariable Long memberId,
+    Authentication authentication,
+    Locale locale
+  ) {
+    return leagueService.rejectMember(leagueId, memberId, authentication.getName(), locale);
+  }
 }
