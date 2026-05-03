@@ -1,0 +1,57 @@
+﻿<section class="mx-auto w-full max-w-6xl px-4 py-10">
+  <div class="grid items-center gap-8 lg:grid-cols-2">
+    <div>
+      <p class="inline-flex rounded-full border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] px-3 py-1 text-xs font-medium text-[var(--rc-text-muted)]">{{ 'home.badge' | translate }}</p>
+      <h1 class="mt-4 text-4xl font-semibold tracking-tight text-[var(--rc-text)] md:text-5xl">{{ 'home.title' | translate }}</h1>
+      <p class="mt-4 text-base leading-7 text-[var(--rc-text-muted)]">{{ 'home.subtitle' | translate }}</p>
+      <div class="mt-7 flex flex-wrap gap-3">
+        <a class="rc-btn-primary inline-flex items-center gap-2" routerLink="/register">{{ 'auth.register' | translate }}</a>
+        <a class="rc-btn-ghost inline-flex items-center gap-2" routerLink="/login">{{ 'auth.login' | translate }}</a>
+      </div>
+      <div class="mt-8 grid grid-cols-3 gap-3">
+        <div class="rounded-xl border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] p-3 text-center">
+          <p class="text-2xl font-semibold text-[var(--rc-text)]">120+</p>
+          <p class="text-xs text-[var(--rc-text-muted)]">{{ 'home.statsLeagues' | translate }}</p>
+        </div>
+        <div class="rounded-xl border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] p-3 text-center">
+          <p class="text-2xl font-semibold text-[var(--rc-text)]">2k+</p>
+          <p class="text-xs text-[var(--rc-text-muted)]">{{ 'home.statsDrivers' | translate }}</p>
+        </div>
+        <div class="rounded-xl border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] p-3 text-center">
+          <p class="text-2xl font-semibold text-[var(--rc-text)]">6k+</p>
+          <p class="text-xs text-[var(--rc-text-muted)]">{{ 'home.statsRaces' | translate }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="rc-panel rounded-3xl p-5 md:p-6">
+      <div class="grid gap-4 sm:grid-cols-2">
+        <article class="rounded-2xl border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] p-4 sm:col-span-2">
+          <fa-icon [icon]="icons.calendar" class="text-cyan-400"></fa-icon>
+          <h3 class="mt-2 text-lg font-semibold text-[var(--rc-text)]">{{ 'home.cardCalendarTitle' | translate }}</h3>
+          <p class="mt-1 text-sm text-[var(--rc-text-muted)]">{{ 'home.cardCalendarDescription' | translate }}</p>
+        </article>
+        <article class="rounded-2xl border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] p-4">
+          <fa-icon [icon]="icons.race" class="text-cyan-400"></fa-icon>
+          <h3 class="mt-2 text-base font-semibold text-[var(--rc-text)]">{{ 'home.cardResultsTitle' | translate }}</h3>
+          <p class="mt-1 text-sm text-[var(--rc-text-muted)]">{{ 'home.cardResultsDescription' | translate }}</p>
+        </article>
+        <article class="rounded-2xl border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] p-4">
+          <fa-icon [icon]="icons.steward" class="text-cyan-400"></fa-icon>
+          <h3 class="mt-2 text-base font-semibold text-[var(--rc-text)]">{{ 'home.cardStewardTitle' | translate }}</h3>
+          <p class="mt-1 text-sm text-[var(--rc-text-muted)]">{{ 'home.cardStewardDescription' | translate }}</p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <div class="rc-panel mt-8 rounded-3xl p-6 md:p-8">
+    <div class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
+      <div>
+        <h2 class="text-2xl font-semibold text-[var(--rc-text)]">{{ 'home.ctaTitle' | translate }}</h2>
+        <p class="mt-1 text-sm text-[var(--rc-text-muted)]">{{ 'home.ctaSubtitle' | translate }}</p>
+      </div>
+      <a class="rc-btn-primary inline-flex items-center gap-2" routerLink="/register">{{ 'home.ctaButton' | translate }}</a>
+    </div>
+  </div>
+</section>

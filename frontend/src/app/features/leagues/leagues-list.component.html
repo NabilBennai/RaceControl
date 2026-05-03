@@ -1,0 +1,19 @@
+<section class="mx-auto w-full max-w-6xl px-4 py-8">
+  <app-league-header title="league.listTitle" subtitle="league.listSubtitle"></app-league-header>
+
+  <div class="mb-6">
+    <a class="rc-btn-primary inline-flex" routerLink="/leagues/new">{{ 'league.create' | translate }}</a>
+  </div>
+
+  @if (leagues.length === 0) {
+    <p class="rounded-2xl border border-dashed border-[var(--rc-border)] p-6 text-sm text-[var(--rc-text-muted)]">
+      {{ 'league.emptyList' | translate }}
+    </p>
+  } @else {
+    <div class="grid gap-4 md:grid-cols-2">
+      @for (league of leagues; track league.id) {
+        <app-league-card [league]="league"></app-league-card>
+      }
+    </div>
+  }
+</section>

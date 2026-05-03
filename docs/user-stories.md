@@ -1,5 +1,3 @@
-Voici un découpage solide pour **SimLeague Manager**.
-
 # MVP 1 — Base produit
 
 ## US-01 — Création de compte
@@ -963,4 +961,4 @@ Entité :
 14. Import CSV
 15. Exports
 
-Ce découpage te donne un projet réaliste, vendable, et assez complet pour exploiter tout ton template.
+Ce découpage te donne un projet réaliste, vendable, et assez complet pour servir de feuille de route produit RaceControl.

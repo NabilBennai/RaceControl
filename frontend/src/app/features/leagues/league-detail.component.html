@@ -1,0 +1,41 @@
+<section class="mx-auto w-full max-w-4xl px-4 py-8">
+  @if (!league) {
+    <p class="text-sm text-[var(--rc-text-muted)]">{{ 'league.loading' | translate }}</p>
+  } @else {
+    <div class="rc-panel rounded-3xl p-7">
+      <app-league-header [title]="league.name"></app-league-header>
+
+      <div class="mb-6 rounded-2xl border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] p-4 text-sm text-[var(--rc-text-muted)]">
+        <p>{{ 'league.platform' | translate }}: <strong class="text-[var(--rc-text)]">{{ league.gamePlatform }}</strong></p>
+        <p>{{ 'league.visibilityLabel' | translate }}: <strong class="text-[var(--rc-text)]">{{ 'league.visibility.' + league.visibility | translate }}</strong></p>
+        <p>{{ 'league.myRole' | translate }}: <strong class="text-[var(--rc-text)]">{{ league.myRole ?? ('league.notMember' | translate) }}</strong></p>
+        @if (league.invitationCode) {
+          <p>{{ 'league.invitationCode' | translate }}: <strong class="text-[var(--rc-text)]">{{ league.invitationCode }}</strong></p>
+        }
+      </div>
+
+      @if (canEdit) {
+        <app-league-form
+          [initialValue]="{ name: league.name, description: league.description, gamePlatform: league.gamePlatform, visibility: league.visibility }"
+          submitLabel="league.update"
+          (submitted)="save($event)">
+        </app-league-form>
+      } @else {
+        <p class="text-sm text-[var(--rc-text-muted)]">{{ league.description }}</p>
+      }
+
+      <div class="mt-6 flex items-center gap-3">
+        <a class="rc-btn-ghost inline-flex" routerLink="/leagues">{{ 'league.backToList' | translate }}</a>
+        <a class="rc-btn-ghost inline-flex" [routerLink]="['/leagues', league.id, 'join']">{{ 'league.join.action' | translate }}</a>
+        @if (canEdit) {
+          <a class="rc-btn-ghost inline-flex" [routerLink]="['/leagues', league.id, 'members']">{{ 'league.members.action' | translate }}</a>
+        }
+        @if (canDelete) {
+          <button (click)="remove()" class="rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-500" type="button">
+            {{ 'league.delete' | translate }}
+          </button>
+        }
+      </div>
+    </div>
+  }
+</section>

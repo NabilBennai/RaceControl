@@ -3,7 +3,7 @@
 Ce fichier décrit les conventions à respecter par les agents qui contribuent à ce repository.
 
 ## Objectif du projet
-Template full-stack **auth-first** prêt à cloner pour démarrer rapidement des projets Angular + Spring Boot.
+Plateforme full-stack **RaceControl** orientée gestion de ligues de simracing, basée sur Angular + Spring Boot.
 
 ## Règles générales
 - Tout contenu applicatif et documentation utilisateur doit être en **français**.

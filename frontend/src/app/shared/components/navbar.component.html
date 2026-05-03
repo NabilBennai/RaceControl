@@ -1,54 +1,96 @@
-﻿<header class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur">
+﻿<header
+  class="sticky top-0 z-50 w-full border-b border-[var(--rc-border)] bg-[color:var(--rc-surface)]/95 backdrop-blur supports-[backdrop-filter]:bg-[color:var(--rc-surface)]/80">
   <nav aria-label="Global" class="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3">
-    <a class="inline-flex items-center gap-2 text-sm font-semibold text-slate-900" routerLink="/">
-      <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-slate-900 text-white">T</span>
-      <span>{{ 'nav.brand' | translate }}</span>
+    <a class="inline-flex items-center gap-2 text-lg font-semibold text-[var(--rc-text)]" routerLink="/">
+      <span
+        class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-cyan-500 font-bold text-slate-950">R</span>
+      {{ 'nav.brand' | translate }}
     </a>
 
+    <div class="hidden items-center gap-1 md:flex">
+      <a class="rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]"
+         routerLink="/">{{ 'nav.home' | translate }}</a>
+      <a class="rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]"
+         routerLink="/dashboard">{{ 'nav.dashboard' | translate }}</a>
+      @if (isAuthenticated && isAdmin) {
+        <a class="rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]"
+           routerLink="/admin">{{ 'nav.admin' | translate }}</a>
+      }
+    </div>
+
+    <div class="hidden items-center gap-2 md:flex">
+      <button (click)="toggleTheme()" class="rc-btn-ghost inline-flex items-center gap-2" type="button">
+        <fa-icon [icon]="isDarkMode ? icons.themeLight : icons.themeDark"></fa-icon>
+        <span>{{ isDarkMode ? ('nav.themeLight' | translate) : ('nav.themeDark' | translate) }}</span>
+      </button>
+      <button (click)="toggleLanguage()" class="rc-btn-ghost inline-flex items-center gap-2" type="button">
+        <fa-icon [icon]="icons.lang"></fa-icon>
+        <span>{{ currentLang === 'fr' ? 'EN' : 'FR' }}</span>
+      </button>
+      @if (!isAuthenticated) {
+        <a class="rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]"
+           routerLink="/login">{{ 'auth.login' | translate }}</a>
+        <a class="rc-btn-primary inline-flex items-center gap-2" routerLink="/register">
+          <fa-icon [icon]="icons.register"></fa-icon>
+          {{ 'auth.register' | translate }}</a>
+      } @else {
+        <button (click)="logout()" class="rc-btn-ghost inline-flex items-center gap-2" type="button">
+          <fa-icon [icon]="icons.logout"></fa-icon>
+          {{ 'nav.logout' | translate }}
+        </button>
+      }
+    </div>
+
     <button
-      aria-controls="navbar-collapse"
-      aria-label="Menu"
-      class="hs-collapse-toggle inline-flex items-center justify-center rounded-md border border-slate-200 p-2 text-slate-700 md:hidden"
-      data-hs-collapse="#navbar-collapse"
+      [attr.aria-label]="'nav.toggleNavigation' | translate"
+      aria-controls="mobile-menu"
+      class="hs-collapse-toggle inline-flex size-9 items-center justify-center rounded-lg border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] text-[var(--rc-text)] md:hidden"
+      data-hs-collapse="#mobile-menu"
       type="button">
-      <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path d="M3 6h18M3 12h18M3 18h18"></path>
+      <svg class="size-4 hs-collapse-open:hidden" fill="none" stroke="currentColor" stroke-width="2"
+           viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <svg class="hidden size-4 hs-collapse-open:block" fill="none" stroke="currentColor"
+           stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
-
-    <div class="hs-collapse hidden grow basis-full md:block" id="navbar-collapse">
-      <div class="mt-3 flex flex-col gap-2 md:mt-0 md:flex-row md:items-center md:justify-end md:gap-3">
-        <a class="text-sm text-slate-600" routerLink="/app"
-           routerLinkActive="text-slate-900 font-semibold">{{ 'nav.dashboard' | translate }}</a>
-
-        @if (isAuthenticated && isAdmin) {
-          <a class="text-sm text-slate-600" routerLink="/admin"
-             routerLinkActive="text-slate-900 font-semibold">{{ 'nav.admin' | translate }}</a>
-        }
-
-        @if (!isAuthenticated) {
-          <a class="text-sm text-slate-600" routerLink="/login"
-             routerLinkActive="text-slate-900 font-semibold">{{ 'auth.login' | translate }}</a>
-          <a class="inline-flex items-center justify-center rounded-md bg-slate-900 px-3 py-2 text-sm font-medium text-white"
-             routerLink="/register">
-            {{ 'auth.register' | translate }}
-          </a>
-        } @else {
-          <button
-            (click)="logout()"
-            class="inline-flex items-center justify-center rounded-md border border-slate-300 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
-            type="button">
-            {{ 'nav.logout' | translate }}
-          </button>
-        }
-
-        <button
-          (click)="toggleLanguage()"
-          class="inline-flex items-center justify-center rounded-md border border-slate-300 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
-          type="button">
-          {{ currentLang === 'fr' ? 'EN' : 'FR' }}
-        </button>
-      </div>
-    </div>
   </nav>
+
+  <div class="hs-collapse hidden border-t border-[var(--rc-border)] md:hidden" id="mobile-menu">
+    <div class="space-y-1 px-4 py-3">
+      <a class="block rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]"
+         routerLink="/">{{ 'nav.home' | translate }}</a>
+      <a class="block rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]"
+         routerLink="/dashboard">{{ 'nav.dashboard' | translate }}</a>
+      @if (isAuthenticated && isAdmin) {
+        <a class="block rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]"
+           routerLink="/admin">{{ 'nav.admin' | translate }}</a>
+      }
+      <div class="mt-2 flex items-center gap-2">
+        <button (click)="toggleTheme()" class="rc-btn-ghost inline-flex flex-1 items-center justify-center gap-2"
+                type="button">
+          <fa-icon [icon]="isDarkMode ? icons.themeLight : icons.themeDark"></fa-icon>
+          <span>{{ isDarkMode ? ('nav.themeLight' | translate) : ('nav.themeDark' | translate) }}</span></button>
+        <button (click)="toggleLanguage()" class="rc-btn-ghost inline-flex flex-1 items-center justify-center gap-2"
+                type="button">
+          <fa-icon [icon]="icons.lang"></fa-icon>
+          <span>{{ currentLang === 'fr' ? 'EN' : 'FR' }}</span></button>
+      </div>
+      @if (!isAuthenticated) {
+        <a class="block rounded-lg px-3 py-2 text-sm text-[var(--rc-text-muted)] hover:bg-[color:var(--rc-surface-2)] hover:text-[var(--rc-text)]"
+           routerLink="/login">{{ 'auth.login' | translate }}</a>
+        <a class="rc-btn-primary inline-flex w-full items-center justify-center gap-2" routerLink="/register">
+          <fa-icon [icon]="icons.register"></fa-icon>
+          {{ 'auth.register' | translate }}</a>
+      } @else {
+        <button (click)="logout()" class="rc-btn-ghost inline-flex w-full items-center justify-center gap-2"
+                type="button">
+          <fa-icon [icon]="icons.logout"></fa-icon>
+          {{ 'nav.logout' | translate }}
+        </button>
+      }
+    </div>
+  </div>
 </header>
