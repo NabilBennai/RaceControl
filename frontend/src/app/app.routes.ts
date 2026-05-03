@@ -75,9 +75,29 @@ export const routes: Routes = [
         loadComponent: () => import('./features/races/season-calendar.component').then((m) => m.SeasonCalendarComponent)
       },
       {
+        path: 'seasons/:seasonId/standings',
+        canActivate: [authGuard],
+        loadComponent: () => import('./features/standings/season-standings.component').then((m) => m.SeasonStandingsComponent)
+      },
+      {
         path: 'races/:raceId',
         canActivate: [authGuard],
         loadComponent: () => import('./features/races/race-detail.component').then((m) => m.RaceDetailComponent)
+      },
+      {
+        path: 'races/:raceId/results',
+        canActivate: [authGuard],
+        loadComponent: () => import('./features/results/race-results-view.component').then((m) => m.RaceResultsViewComponent)
+      },
+      {
+        path: 'races/:raceId/results/edit',
+        canActivate: [authGuard],
+        loadComponent: () => import('./features/results/race-results-edit.component').then((m) => m.RaceResultsEditComponent)
+      },
+      {
+        path: 'races/:raceId/results/import',
+        canActivate: [authGuard],
+        loadComponent: () => import('./features/results/race-results-import.component').then((m) => m.RaceResultsImportComponent)
       },
       {
         path: 'admin',

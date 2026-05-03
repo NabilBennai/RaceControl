@@ -307,6 +307,78 @@
       "statusFailed": "Unable to update status."
     }
   },
+  "result": {
+    "loading": "Loading results...",
+    "editTitle": "Manual result entry",
+    "viewTitle": "Race standings",
+    "backToRace": "Back to race",
+    "editAction": "Edit results",
+    "viewAction": "View results",
+    "saveAction": "Save results",
+    "deleteAction": "Delete results",
+    "driver": "Driver",
+    "position": "Position",
+    "totalTime": "Total time",
+    "bestLap": "Best lap",
+    "polePosition": "Pole",
+    "incidents": "Incidents",
+    "statusLabel": "Status",
+    "yes": "Yes",
+    "no": "No",
+    "empty": "No result entered.",
+    "savedTitle": "Results saved",
+    "savedMessage": "Race results have been saved.",
+    "deletedTitle": "Results deleted",
+    "deletedMessage": "Race results have been deleted.",
+    "status": {
+      "CLASSIFIED": "Classified",
+      "DNF": "DNF",
+      "DNS": "DNS",
+      "DSQ": "DSQ"
+    },
+    "errors": {
+      "loadRaceFailed": "Unable to load race.",
+      "loadRegistrationsFailed": "Unable to load registrations.",
+      "loadFailed": "Unable to load results.",
+      "saveFailed": "Unable to save results.",
+      "deleteFailed": "Unable to delete results."
+    }
+  },
+  "import": {
+    "navAction": "CSV import",
+    "title": "CSV results import",
+    "subtitle": "Upload, preview and confirm",
+    "backToRace": "Back to race",
+    "downloadTemplate": "Download CSV template",
+    "uploadCsv": "Import CSV",
+    "uploading": "Uploading...",
+    "confirmAction": "Confirm import",
+    "createdTitle": "CSV uploaded",
+    "createdMessage": "Preview generated.",
+    "confirmedTitle": "Import confirmed",
+    "confirmedMessage": "Results have been applied.",
+    "errors": {
+      "uploadFailed": "Unable to upload CSV.",
+      "confirmFailed": "Unable to confirm import."
+    }
+  },
+  "standing": {
+    "manageAction": "Standings",
+    "title": "Season standings",
+    "backToSeason": "Back to season",
+    "driversTitle": "Driver standings",
+    "teamsTitle": "Team standings",
+    "recalculateAction": "Recalculate",
+    "recalculatedTitle": "Standings recalculated",
+    "recalculatedMessage": "Driver and team standings were updated.",
+    "emptyDrivers": "No driver standings yet.",
+    "emptyTeams": "No team standings yet.",
+    "errors": {
+      "loadDriversFailed": "Unable to load driver standings.",
+      "loadTeamsFailed": "Unable to load team standings.",
+      "recalculateFailed": "Unable to recalculate standings."
+    }
+  },
   "nav": {
     "brand": "RaceControl",
     "home": "Home",

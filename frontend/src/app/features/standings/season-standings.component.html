@@ -1,0 +1,53 @@
+<section class="rc-page rc-stagger">
+  <header class="rc-page-header">
+    <div>
+      <span class="rc-eyebrow">{{ 'standing.title' | translate }}</span>
+      <h1 class="rc-display rc-page-title mt-4">Saison #{{ seasonId }}</h1>
+    </div>
+    <div class="flex gap-2">
+      <button class="rc-btn-primary" type="button" (click)="recalculate()">{{ 'standing.recalculateAction' | translate }}</button>
+      <a class="rc-link-quiet text-sm" [routerLink]="['/seasons', seasonId]">&larr; {{ 'standing.backToSeason' | translate }}</a>
+    </div>
+  </header>
+
+  <div class="grid gap-6 lg:grid-cols-2">
+    <section class="rc-panel p-6">
+      <h2 class="rc-display text-2xl">{{ 'standing.driversTitle' | translate }}</h2>
+      @if (drivers.length === 0) {
+        <p class="text-sm text-[var(--rc-muted)] mt-4">{{ 'standing.emptyDrivers' | translate }}</p>
+      } @else {
+        <div class="grid gap-2 mt-4">
+          @for (d of drivers; track d.userId) {
+            <article class="rc-card">
+              <div class="flex items-center gap-2">
+                <p class="rc-display text-xl">{{ d.username }}</p>
+                <span class="rc-badge ml-auto">{{ d.points }} pts</span>
+              </div>
+              <p class="text-xs text-[var(--rc-muted)] mt-1">W {{ d.wins }} · P {{ d.podiums }} · Pole {{ d.poles }} · FL {{ d.fastestLaps }}</p>
+            </article>
+          }
+        </div>
+      }
+    </section>
+
+    <section class="rc-panel p-6">
+      <h2 class="rc-display text-2xl">{{ 'standing.teamsTitle' | translate }}</h2>
+      @if (teams.length === 0) {
+        <p class="text-sm text-[var(--rc-muted)] mt-4">{{ 'standing.emptyTeams' | translate }}</p>
+      } @else {
+        <div class="grid gap-2 mt-4">
+          @for (t of teams; track t.teamId) {
+            <article class="rc-card">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full border border-[var(--rc-line)]" [style.background]="t.color"></span>
+                <p class="rc-display text-xl">{{ t.teamName }}</p>
+                <span class="rc-badge ml-auto">{{ t.points }} pts</span>
+              </div>
+              <p class="text-xs text-[var(--rc-muted)] mt-1">W {{ t.wins }} · P {{ t.podiums }} · Pole {{ t.poles }} · FL {{ t.fastestLaps }}</p>
+            </article>
+          }
+        </div>
+      }
+    </section>
+  </div>
+</section>

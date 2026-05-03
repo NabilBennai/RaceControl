@@ -103,3 +103,23 @@ Valeurs multiples possibles, séparées par des virgules.
 - `GET /api/races/{raceId}/registrations`
 - `DELETE /api/races/{raceId}/registrations/me`
 - `PATCH /api/races/{raceId}/registrations/{registrationId}/status`
+
+## Résultats course (US-09)
+
+- `POST /api/races/{raceId}/results`
+- `GET /api/races/{raceId}/results`
+- `PUT /api/races/{raceId}/results`
+- `DELETE /api/races/{raceId}/results`
+
+## Import CSV résultats (US-10)
+
+- `POST /api/races/{raceId}/results/import` (`multipart/form-data` champ `file`)
+- `GET /api/imports/{importId}`
+- `POST /api/imports/{importId}/confirm`
+- `GET /api/results/template.csv` (template CSV à télécharger)
+
+## Classements automatiques (US-11)
+
+- `GET /api/seasons/{seasonId}/standings/drivers`
+- `GET /api/seasons/{seasonId}/standings/teams`
+- `POST /api/seasons/{seasonId}/standings/recalculate`

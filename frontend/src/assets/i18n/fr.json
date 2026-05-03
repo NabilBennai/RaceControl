@@ -307,6 +307,78 @@
       "statusFailed": "Impossible de mettre à jour le statut."
     }
   },
+  "result": {
+    "loading": "Chargement des résultats...",
+    "editTitle": "Saisie des résultats",
+    "viewTitle": "Classement de la course",
+    "backToRace": "Retour à la course",
+    "editAction": "Éditer résultats",
+    "viewAction": "Voir résultats",
+    "saveAction": "Enregistrer les résultats",
+    "deleteAction": "Supprimer les résultats",
+    "driver": "Pilote",
+    "position": "Position",
+    "totalTime": "Temps total",
+    "bestLap": "Meilleur tour",
+    "polePosition": "Pole",
+    "incidents": "Incidents",
+    "statusLabel": "Statut",
+    "yes": "Oui",
+    "no": "Non",
+    "empty": "Aucun résultat saisi.",
+    "savedTitle": "Résultats enregistrés",
+    "savedMessage": "Les résultats de la course ont été sauvegardés.",
+    "deletedTitle": "Résultats supprimés",
+    "deletedMessage": "Les résultats de la course ont été supprimés.",
+    "status": {
+      "CLASSIFIED": "Classé",
+      "DNF": "DNF",
+      "DNS": "DNS",
+      "DSQ": "DSQ"
+    },
+    "errors": {
+      "loadRaceFailed": "Impossible de charger la course.",
+      "loadRegistrationsFailed": "Impossible de charger les inscrits.",
+      "loadFailed": "Impossible de charger les résultats.",
+      "saveFailed": "Impossible d'enregistrer les résultats.",
+      "deleteFailed": "Impossible de supprimer les résultats."
+    }
+  },
+  "import": {
+    "navAction": "Import CSV",
+    "title": "Import des résultats CSV",
+    "subtitle": "Upload, prévisualisation et confirmation",
+    "backToRace": "Retour à la course",
+    "downloadTemplate": "Télécharger le template CSV",
+    "uploadCsv": "Importer un CSV",
+    "uploading": "Import en cours...",
+    "confirmAction": "Confirmer l'import",
+    "createdTitle": "CSV importé",
+    "createdMessage": "Prévisualisation générée.",
+    "confirmedTitle": "Import confirmé",
+    "confirmedMessage": "Les résultats ont été appliqués.",
+    "errors": {
+      "uploadFailed": "Impossible d'importer le CSV.",
+      "confirmFailed": "Impossible de confirmer l'import."
+    }
+  },
+  "standing": {
+    "manageAction": "Classements",
+    "title": "Classements saison",
+    "backToSeason": "Retour à la saison",
+    "driversTitle": "Classement pilotes",
+    "teamsTitle": "Classement équipes",
+    "recalculateAction": "Recalculer",
+    "recalculatedTitle": "Classements recalculés",
+    "recalculatedMessage": "Les classements pilotes et équipes ont été mis à jour.",
+    "emptyDrivers": "Aucun classement pilote disponible.",
+    "emptyTeams": "Aucun classement équipe disponible.",
+    "errors": {
+      "loadDriversFailed": "Impossible de charger le classement pilotes.",
+      "loadTeamsFailed": "Impossible de charger le classement équipes.",
+      "recalculateFailed": "Impossible de recalculer les classements."
+    }
+  },
   "nav": {
     "brand": "RaceControl",
     "home": "Accueil",

@@ -1,0 +1,38 @@
+<section class="rc-page rc-stagger">
+  @if (!race) {
+    <div class="rc-empty">{{ 'result.loading' | translate }}</div>
+  } @else {
+    <header class="rc-page-header">
+      <div>
+        <span class="rc-eyebrow">{{ 'result.viewTitle' | translate }}</span>
+        <h1 class="rc-display rc-page-title mt-4">{{ race.track }}</h1>
+      </div>
+      <div class="flex gap-2">
+        <a class="rc-btn-ghost" [routerLink]="['/races', race.id, 'results', 'edit']">{{ 'result.editAction' | translate }}</a>
+        <a class="rc-link-quiet text-sm" [routerLink]="['/races', race.id]">&larr; {{ 'result.backToRace' | translate }}</a>
+      </div>
+    </header>
+
+    @if (!result) {
+      <div class="rc-empty">{{ 'result.empty' | translate }}</div>
+    } @else {
+      <div class="grid gap-3">
+        @for (line of result.lines; track line.id) {
+          <article class="rc-card">
+            <div class="flex items-center gap-2">
+              <span class="rc-badge">P{{ line.position }}</span>
+              <p class="rc-display text-xl">{{ line.username }}</p>
+              <span class="rc-badge ml-auto">{{ 'result.status.' + line.status | translate }}</span>
+            </div>
+            <p class="text-sm text-[var(--rc-ink-soft)] mt-2">
+              {{ 'result.totalTime' | translate }}: {{ line.totalTime || '-' }} ·
+              {{ 'result.bestLap' | translate }}: {{ line.bestLap || '-' }} ·
+              {{ 'result.incidents' | translate }}: {{ line.incidents }} ·
+              {{ 'result.polePosition' | translate }}: {{ line.polePosition ? ('result.yes' | translate) : ('result.no' | translate) }}
+            </p>
+          </article>
+        }
+      </div>
+    }
+  }
+</section>

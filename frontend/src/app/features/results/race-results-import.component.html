@@ -1,0 +1,43 @@
+<section class="rc-page rc-stagger">
+  <header class="rc-page-header">
+    <div>
+      <span class="rc-eyebrow">{{ 'import.title' | translate }}</span>
+      <h1 class="rc-display rc-page-title mt-4">{{ 'import.subtitle' | translate }}</h1>
+    </div>
+    <a class="rc-link-quiet text-sm" [routerLink]="['/races', raceId]">&larr; {{ 'import.backToRace' | translate }}</a>
+  </header>
+
+  <div class="rc-panel p-7">
+    <div class="flex flex-wrap items-center gap-3">
+      <a class="rc-btn-ghost" [href]="templateUrl()">{{ 'import.downloadTemplate' | translate }}</a>
+      <label class="rc-btn-primary cursor-pointer">
+        {{ uploading ? ('import.uploading' | translate) : ('import.uploadCsv' | translate) }}
+        <input class="hidden" type="file" accept=".csv,text/csv" (change)="onFileChange($event)"/>
+      </label>
+    </div>
+
+    @if (importResult) {
+      <div class="mt-6">
+        <p class="rc-mono text-xs text-[var(--rc-muted)]">#{{ importResult.id }} · {{ importResult.originalFileName }} · {{ importResult.status }}</p>
+
+        @if (importResult.errors.length > 0) {
+          <div class="mt-4 space-y-2">
+            @for (err of importResult.errors; track err.lineNumber + err.message) {
+              <p class="text-sm text-red-400">L{{ err.lineNumber }} - {{ err.message }}</p>
+            }
+          </div>
+        } @else {
+          <div class="grid gap-3 mt-4">
+            @for (line of importResult.preview; track line.lineNumber) {
+              <article class="rc-card">
+                <p class="text-sm">{{ line.userEmail }} · P{{ line.position }} · {{ line.status }}</p>
+                <p class="text-xs text-[var(--rc-muted)]">{{ line.totalTime || '-' }} / {{ line.bestLap || '-' }} / {{ line.incidents }}</p>
+              </article>
+            }
+          </div>
+          <button class="rc-btn-primary mt-4" type="button" (click)="confirm()">{{ 'import.confirmAction' | translate }}</button>
+        }
+      </div>
+    }
+  </div>
+</section>

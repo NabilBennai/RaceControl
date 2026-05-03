@@ -1,0 +1,47 @@
+<section class="rc-page rc-stagger">
+  @if (!race) {
+    <div class="rc-empty">{{ 'result.loading' | translate }}</div>
+  } @else {
+    <header class="rc-page-header">
+      <div>
+        <span class="rc-eyebrow">{{ 'result.editTitle' | translate }}</span>
+        <h1 class="rc-display rc-page-title mt-4">{{ race.track }}</h1>
+      </div>
+      <a class="rc-link-quiet text-sm" [routerLink]="['/races', race.id]">&larr; {{ 'result.backToRace' | translate }}</a>
+    </header>
+
+    <div class="rc-panel p-7">
+      <form [formGroup]="form" (ngSubmit)="save()">
+        <div formArrayName="lines" class="space-y-3">
+          @for (line of lines.controls; track $index) {
+            <div [formGroupName]="$index" class="grid gap-3 md:grid-cols-[1.6fr_.7fr_1fr_1fr_.7fr_.9fr_auto] items-end">
+              <label class="rc-field"><span class="rc-field-label">{{ 'result.driver' | translate }}</span><input class="rc-input" type="text" formControlName="username" readonly/></label>
+              <label class="rc-field"><span class="rc-field-label">{{ 'result.position' | translate }}</span><input class="rc-input" type="number" formControlName="position"/></label>
+              <label class="rc-field"><span class="rc-field-label">{{ 'result.totalTime' | translate }}</span><input class="rc-input" type="text" formControlName="totalTime"/></label>
+              <label class="rc-field"><span class="rc-field-label">{{ 'result.bestLap' | translate }}</span><input class="rc-input" type="text" formControlName="bestLap"/></label>
+              <label class="rc-field"><span class="rc-field-label">{{ 'result.incidents' | translate }}</span><input class="rc-input" type="number" formControlName="incidents"/></label>
+              <label class="rc-field">
+                <span class="rc-field-label">{{ 'result.statusLabel' | translate }}</span>
+                <select class="rc-input" formControlName="status">
+                  @for (status of statuses; track status) {
+                    <option [value]="status">{{ 'result.status.' + status | translate }}</option>
+                  }
+                </select>
+              </label>
+              <label class="rc-field rc-check">
+                <span class="rc-field-label">{{ 'result.polePosition' | translate }}</span>
+                <input type="checkbox" formControlName="polePosition"/>
+              </label>
+            </div>
+          }
+        </div>
+
+        <div class="flex gap-2 mt-6">
+          <button class="rc-btn-primary" type="submit">{{ 'result.saveAction' | translate }}</button>
+          <button class="rc-btn-danger" type="button" (click)="deleteResult()">{{ 'result.deleteAction' | translate }}</button>
+          <a class="rc-btn-ghost ml-auto" [routerLink]="['/races', race.id, 'results']">{{ 'result.viewAction' | translate }}</a>
+        </div>
+      </form>
+    </div>
+  }
+</section>

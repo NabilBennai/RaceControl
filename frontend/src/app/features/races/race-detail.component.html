@@ -29,6 +29,9 @@
 
         <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-[var(--rc-line-faint)]">
           <button class="rc-btn-primary" type="submit">{{ 'race.updateAction' | translate }}</button>
+          <a class="rc-btn-ghost" [routerLink]="['/races', race.id, 'results']">{{ 'result.viewAction' | translate }}</a>
+          <a class="rc-btn-ghost" [routerLink]="['/races', race.id, 'results', 'edit']">{{ 'result.editAction' | translate }}</a>
+          <a class="rc-btn-ghost" [routerLink]="['/races', race.id, 'results', 'import']">{{ 'import.navAction' | translate }}</a>
           @for (status of statuses; track status) {
             <button class="rc-btn-ghost" type="button" (click)="setStatus(status)">{{ 'race.status.' + status | translate }}</button>
           }
