@@ -1,0 +1,98 @@
+<section class="rc-page rc-stagger">
+  @if (!season) {
+    <div class="rc-empty">
+      <p class="rc-eyebrow-bare">{{ 'paddock.loadingPitWall' | translate }}</p>
+      <p class="mt-3 text-[var(--rc-ink-soft)]">{{ 'team.loading' | translate }}</p>
+    </div>
+  } @else {
+    <header class="rc-page-header">
+      <div>
+        <span class="rc-eyebrow">{{ 'team.title' | translate }}</span>
+        <h1 class="rc-display rc-page-title mt-4">{{ season.name }}</h1>
+        <p class="rc-page-subtitle">{{ 'team.subtitle' | translate }}</p>
+      </div>
+      <a class="rc-link-quiet text-sm" [routerLink]="['/seasons', season.id]">&larr; {{ 'team.backToSeason' | translate }}</a>
+    </header>
+
+    <div class="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
+      <section class="space-y-4">
+        @if (teams.length === 0) {
+          <div class="rc-empty">
+            <p class="rc-eyebrow-bare">{{ 'team.emptyList' | translate }}</p>
+          </div>
+        } @else {
+          @for (team of teams; track team.id) {
+            <article class="rc-panel p-6">
+              @if (editingTeamId === team.id) {
+                <form class="space-y-3" [formGroup]="editForm" (ngSubmit)="updateTeam(team.id)">
+                  <div class="grid gap-3 md:grid-cols-3">
+                    <label class="rc-field"><span class="rc-field-label">{{ 'team.name' | translate }}</span><input class="rc-input" type="text" formControlName="name"/></label>
+                    <label class="rc-field"><span class="rc-field-label">{{ 'team.color' | translate }}</span><input class="rc-input" type="text" formControlName="color"/></label>
+                    <label class="rc-field"><span class="rc-field-label">{{ 'team.logoUrl' | translate }}</span><input class="rc-input" type="url" formControlName="logoUrl"/></label>
+                  </div>
+                  <div class="flex gap-2">
+                    <button class="rc-btn-primary" type="submit">{{ 'team.updateAction' | translate }}</button>
+                    <button class="rc-btn-ghost" type="button" (click)="cancelEdit()">{{ 'team.cancelAction' | translate }}</button>
+                  </div>
+                </form>
+              } @else {
+                <div class="flex flex-wrap items-start gap-4">
+                  <span class="rc-color-dot" [style.background]="team.color"></span>
+                  <div class="min-w-0 grow">
+                    <p class="rc-display text-2xl">{{ team.name }}</p>
+                    <p class="rc-mono text-xs text-[var(--rc-muted)] mt-1">{{ team.color }}</p>
+                    @if (team.logoUrl) {
+                      <a class="rc-link-quiet text-sm mt-2 inline-block" [href]="team.logoUrl" target="_blank" rel="noreferrer">{{ team.logoUrl }}</a>
+                    }
+                  </div>
+                  <div class="flex gap-2">
+                    <button class="rc-btn-ghost" type="button" (click)="startEdit(team)">{{ 'team.editAction' | translate }}</button>
+                    <button class="rc-btn-danger" type="button" (click)="deleteTeam(team.id)">{{ 'team.deleteAction' | translate }}</button>
+                  </div>
+                </div>
+
+                <div class="mt-4 pt-4 border-t border-[var(--rc-line-faint)]">
+                  <p class="rc-eyebrow-bare mb-2">{{ 'team.members' | translate }}</p>
+                  @if (team.members.length === 0) {
+                    <p class="text-sm text-[var(--rc-muted)]">{{ 'team.noMembers' | translate }}</p>
+                  } @else {
+                    <div class="flex flex-wrap gap-2">
+                      @for (member of team.members; track member.id) {
+                        <span class="rc-member-chip">
+                          {{ member.username }}
+                          <button type="button" (click)="removeMember(team.id, member.id)">&times;</button>
+                        </span>
+                      }
+                    </div>
+                  }
+
+                  <div class="mt-3 flex gap-2 items-center">
+                    <select #driverSel class="rc-input max-w-sm">
+                      <option value="">{{ 'team.selectDriver' | translate }}</option>
+                      @for (driver of eligibleDrivers; track driver.userId) {
+                        @if (!isAssigned(driver.userId)) {
+                          <option [value]="driver.userId">{{ driver.username }} ({{ driver.email }})</option>
+                        }
+                      }
+                    </select>
+                    <button class="rc-btn-ghost" type="button" (click)="addMember(team.id, driverSel.value)">{{ 'team.addMemberAction' | translate }}</button>
+                  </div>
+                </div>
+              }
+            </article>
+          }
+        }
+      </section>
+
+      <aside class="rc-panel p-7 h-fit">
+        <h2 class="rc-display text-2xl">{{ 'team.createTitle' | translate }}</h2>
+        <form class="mt-6 space-y-4" [formGroup]="form" (ngSubmit)="createTeam()">
+          <label class="rc-field"><span class="rc-field-label"><span>{{ 'team.name' | translate }}</span><span class="rc-field-label-index">01</span></span><input class="rc-input" type="text" formControlName="name"/></label>
+          <label class="rc-field"><span class="rc-field-label"><span>{{ 'team.color' | translate }}</span><span class="rc-field-label-index">02</span></span><input class="rc-input" type="text" formControlName="color" placeholder="#E10600"/></label>
+          <label class="rc-field"><span class="rc-field-label"><span>{{ 'team.logoUrl' | translate }}</span><span class="rc-field-label-index">03</span></span><input class="rc-input" type="url" formControlName="logoUrl" placeholder="https://..."/></label>
+          <button class="rc-btn-primary w-full" type="submit">{{ 'team.createAction' | translate }}</button>
+        </form>
+      </aside>
+    </div>
+  }
+</section>
