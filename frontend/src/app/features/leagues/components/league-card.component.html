@@ -1,20 +1,28 @@
-<article class="rc-panel rounded-2xl p-5">
-  <div class="flex items-start justify-between gap-3">
-    <h3 class="text-lg font-semibold text-[var(--rc-text)]">{{ league.name }}</h3>
-    <span class="rounded-full border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] px-2 py-1 text-xs text-[var(--rc-text-muted)]">
+<article class="rc-league-card rc-card-accent" [class.is-private]="league.visibility === 'PRIVATE'">
+  <header class="rc-league-card-head">
+    <span class="rc-mono rc-league-card-id">#{{ ('00' + league.id).slice(-3) }}</span>
+    <span class="rc-badge" [class.rc-badge-accent]="league.visibility === 'PRIVATE'" [class.rc-badge-go]="league.visibility === 'PUBLIC'">
+      <span class="rc-dot"></span>
       {{ 'league.visibility.' + league.visibility | translate }}
     </span>
-  </div>
+  </header>
 
-  <p class="mt-3 line-clamp-3 text-sm text-[var(--rc-text-muted)]">{{ league.description }}</p>
+  <h3 class="rc-display rc-league-card-title">{{ league.name }}</h3>
 
-  <div class="mt-4 flex items-center justify-between text-xs text-[var(--rc-text-muted)]">
-    <span>{{ 'league.platform' | translate }}: {{ league.gamePlatform }}</span>
-    <span>{{ 'league.myRole' | translate }}: {{ league.myRole ?? ('league.notMember' | translate) }}</span>
-  </div>
+  <p class="rc-league-card-description">{{ league.description }}</p>
 
-  <a class="mt-4 inline-flex text-sm font-medium text-cyan-600 hover:text-cyan-500 dark:text-cyan-300 dark:hover:text-cyan-200"
-     [routerLink]="['/leagues', league.id]">
-    {{ 'league.viewDetails' | translate }}
+  <dl class="rc-league-card-meta">
+    <div>
+      <dt class="rc-eyebrow-bare">PLATFORM</dt>
+      <dd class="rc-mono rc-league-card-meta-value">{{ league.gamePlatform }}</dd>
+    </div>
+    <div>
+      <dt class="rc-eyebrow-bare">ROLE</dt>
+      <dd class="rc-mono rc-league-card-meta-value">{{ league.myRole ?? ('league.notMember' | translate) }}</dd>
+    </div>
+  </dl>
+
+  <a class="rc-link rc-league-card-link" [routerLink]="['/leagues', league.id]">
+    {{ 'league.viewDetails' | translate }} →
   </a>
 </article>

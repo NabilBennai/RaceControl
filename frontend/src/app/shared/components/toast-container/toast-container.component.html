@@ -1,28 +1,37 @@
-<div class="pointer-events-none fixed bottom-4 right-4 z-[70] flex w-full max-w-sm flex-col gap-2 px-3 sm:bottom-6 sm:right-6 sm:px-0">
+<div class="pointer-events-none fixed bottom-6 right-6 z-[70] flex w-full max-w-sm flex-col gap-3 px-3 sm:px-0">
   @for (toast of toastService.toasts; track toast.id) {
-    <div class="rc-toast pointer-events-auto rc-panel overflow-hidden rounded-xl p-3">
-      <div class="flex items-start gap-3">
-        <span class="mt-0.5"
-              [class.text-emerald-400]="toast.type === 'success'"
-              [class.text-red-400]="toast.type === 'error'"
-              [class.text-cyan-400]="toast.type === 'info'">
+    <div class="rc-toast pointer-events-auto overflow-hidden">
+      <div class="flex items-start gap-3 px-4 pt-4 pb-3">
+        <span class="rc-toast-icon"
+              [class.is-success]="toast.type === 'success'"
+              [class.is-error]="toast.type === 'error'"
+              [class.is-info]="toast.type === 'info'">
           <fa-icon [icon]="toast.type === 'success' ? icons.success : toast.type === 'error' ? icons.error : icons.info"></fa-icon>
         </span>
 
         <div class="min-w-0 flex-1">
-          <p class="text-sm font-semibold text-[var(--rc-text)]">{{ toast.title }}</p>
+          <p class="rc-toast-eyebrow"
+             [class.is-success]="toast.type === 'success'"
+             [class.is-error]="toast.type === 'error'"
+             [class.is-info]="toast.type === 'info'">
+            {{ (toast.type === 'success' ? 'paddock.greenFlag' : toast.type === 'error' ? 'paddock.redFlag' : 'paddock.bulletin') | translate }}
+          </p>
+          <p class="rc-toast-title">{{ toast.title }}</p>
           @if (toast.message) {
-            <p class="mt-1 text-sm text-[var(--rc-text-muted)]">{{ toast.message }}</p>
+            <p class="rc-toast-message">{{ toast.message }}</p>
           }
         </div>
 
-        <button (click)="toastService.dismiss(toast.id)" class="rc-btn-ghost !p-1.5" type="button" aria-label="Fermer">
+        <button (click)="toastService.dismiss(toast.id)" class="rc-btn-icon rc-btn-icon-sm" type="button" aria-label="Fermer">
           <fa-icon [icon]="icons.close"></fa-icon>
         </button>
       </div>
 
-      <div class="mt-3 h-1 w-full rounded bg-[color:var(--rc-surface-2)]">
-        <div class="rc-toast-progress h-full rounded bg-cyan-400"
+      <div class="rc-toast-rail">
+        <div class="rc-toast-progress"
+             [class.is-success]="toast.type === 'success'"
+             [class.is-error]="toast.type === 'error'"
+             [class.is-info]="toast.type === 'info'"
              [style.animation-duration.ms]="toast.durationMs"></div>
       </div>
     </div>

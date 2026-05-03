@@ -1,41 +1,49 @@
-<section class="mx-auto w-full max-w-4xl px-4 py-8">
+<section class="rc-page rc-stagger">
   @if (!league) {
-    <p class="text-sm text-[var(--rc-text-muted)]">{{ 'league.loading' | translate }}</p>
+    <div class="rc-empty">
+      <p class="rc-eyebrow-bare">{{ 'paddock.loadingPitWall' | translate }}</p>
+      <p class="mt-3 text-[var(--rc-ink-soft)]">{{ 'league.loading' | translate }}</p>
+    </div>
   } @else {
-    <div class="rc-panel rounded-3xl p-7">
-      <app-league-header [title]="league.name"></app-league-header>
-
-      <div class="mb-6 rounded-2xl border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] p-4 text-sm text-[var(--rc-text-muted)]">
-        <p>{{ 'league.platform' | translate }}: <strong class="text-[var(--rc-text)]">{{ league.gamePlatform }}</strong></p>
-        <p>{{ 'league.visibilityLabel' | translate }}: <strong class="text-[var(--rc-text)]">{{ 'league.visibility.' + league.visibility | translate }}</strong></p>
-        <p>{{ 'league.myRole' | translate }}: <strong class="text-[var(--rc-text)]">{{ league.myRole ?? ('league.notMember' | translate) }}</strong></p>
-        @if (league.invitationCode) {
-          <p>{{ 'league.invitationCode' | translate }}: <strong class="text-[var(--rc-text)]">{{ league.invitationCode }}</strong></p>
-        }
+    <header class="rc-page-header">
+      <div>
+        <span class="rc-eyebrow">{{ 'paddock.league' | translate }} #{{ ('00' + league.id).slice(-3) }}</span>
+        <h1 class="rc-display rc-page-title mt-4">{{ league.name }}</h1>
+        <p class="rc-page-subtitle">{{ league.description }}</p>
       </div>
+      <div class="flex items-center gap-2 flex-wrap">
+        <span class="rc-badge">{{ league.gamePlatform }}</span>
+        <span class="rc-badge" [class.rc-badge-accent]="league.visibility === 'PRIVATE'" [class.rc-badge-go]="league.visibility === 'PUBLIC'">{{ 'league.visibility.' + league.visibility | translate }}</span>
+      </div>
+    </header>
 
-      @if (canEdit) {
-        <app-league-form
-          [initialValue]="{ name: league.name, description: league.description, gamePlatform: league.gamePlatform, visibility: league.visibility }"
-          submitLabel="league.update"
-          (submitted)="save($event)">
-        </app-league-form>
-      } @else {
-        <p class="text-sm text-[var(--rc-text-muted)]">{{ league.description }}</p>
-      }
-
-      <div class="mt-6 flex items-center gap-3">
-        <a class="rc-btn-ghost inline-flex" routerLink="/leagues">{{ 'league.backToList' | translate }}</a>
-        <a class="rc-btn-ghost inline-flex" [routerLink]="['/leagues', league.id, 'join']">{{ 'league.join.action' | translate }}</a>
+    <div class="grid gap-6 lg:grid-cols-[1.5fr_1fr]">
+      <section class="space-y-6">
         @if (canEdit) {
-          <a class="rc-btn-ghost inline-flex" [routerLink]="['/leagues', league.id, 'members']">{{ 'league.members.action' | translate }}</a>
+          <div class="rc-panel p-7 md:p-10">
+            <p class="rc-eyebrow-bare mb-5">{{ 'paddock.editLeagueData' | translate }}</p>
+            <app-league-form
+              [initialValue]="{ name: league.name, description: league.description, gamePlatform: league.gamePlatform, visibility: league.visibility }"
+              submitLabel="league.update"
+              (submitted)="save($event)">
+            </app-league-form>
+          </div>
         }
-        @if (canDelete) {
-          <button (click)="remove()" class="rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-500" type="button">
-            {{ 'league.delete' | translate }}
-          </button>
+      </section>
+
+      <aside class="rc-card p-6 h-fit space-y-4">
+        <div><p class="rc-eyebrow-bare">{{ 'paddock.yourRole' | translate }}</p><p class="rc-numeric text-2xl mt-1">{{ league.myRole ?? ('league.notMember' | translate) }}</p></div>
+        @if (league.invitationCode) {
+          <div><p class="rc-eyebrow-bare">{{ 'paddock.invitationCodeLabel' | translate }}</p><p class="rc-numeric text-xl mt-1 tracking-wider">{{ league.invitationCode }}</p></div>
         }
-      </div>
+        <div class="flex flex-wrap gap-2 pt-2 border-t border-[var(--rc-line-faint)]">
+          <a class="rc-btn-ghost" [routerLink]="['/leagues', league.id, 'join']">{{ 'league.join.action' | translate }}</a>
+          <a class="rc-btn-ghost" [routerLink]="['/leagues', league.id, 'seasons']">{{ 'season.manageAction' | translate }}</a>
+          @if (canEdit) { <a class="rc-btn-ghost" [routerLink]="['/leagues', league.id, 'members']">{{ 'league.members.action' | translate }}</a> }
+          @if (canDelete) { <button (click)="remove()" class="rc-btn-danger" type="button">{{ 'league.delete' | translate }}</button> }
+        </div>
+        <a class="rc-link-quiet text-sm" routerLink="/leagues">&larr; {{ 'league.backToList' | translate }}</a>
+      </aside>
     </div>
   }
 </section>

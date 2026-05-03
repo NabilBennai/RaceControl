@@ -1,1 +1,9 @@
 ﻿
+:host {
+  display: block;
+}
+
+.rc-main {
+  width: 100%;
+  min-height: calc(100vh - 84px);
+}

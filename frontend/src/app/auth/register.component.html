@@ -1,69 +1,42 @@
-﻿<section class="mx-auto grid w-full max-w-6xl gap-6 px-4 py-10 lg:grid-cols-2 lg:items-stretch">
-  <aside class="rc-panel relative overflow-hidden rounded-3xl p-7">
-    <div class="absolute -left-24 -bottom-24 h-60 w-60 rounded-full bg-cyan-400/15 blur-3xl"></div>
-    <p
-      class="inline-flex items-center rounded-full border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] px-3 py-1 text-xs font-medium text-[var(--rc-text-muted)]">
-      {{ 'auth.heroBadge' | translate }}
-    </p>
-    <h1
-      class="mt-4 text-3xl font-semibold tracking-tight text-[var(--rc-text)]">{{ 'auth.registerTitle' | translate }}</h1>
-    <p class="mt-3 text-sm leading-6 text-[var(--rc-text-muted)]">{{ 'auth.registerSubtitle' | translate }}</p>
+<section class="rc-page rc-page-narrow rc-stagger">
+  <div class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+    <aside class="rc-card p-7 md:p-8">
+      <span class="rc-eyebrow">{{ 'auth.heroBadge' | translate }}</span>
+      <h2 class="rc-display text-3xl mt-4">{{ 'auth.registerTitle' | translate }}</h2>
+      <p class="text-sm text-[var(--rc-muted)] mt-4 leading-relaxed">{{ 'auth.registerSubtitle' | translate }}</p>
+      <ul class="mt-6 space-y-2 text-sm text-[var(--rc-muted)]">
+        <li>{{ 'auth.featureLeague' | translate }}</li>
+        <li>{{ 'auth.featureCalendar' | translate }}</li>
+        <li>{{ 'auth.featureSteward' | translate }}</li>
+      </ul>
+    </aside>
 
-    <ul class="mt-8 space-y-3 text-sm text-[var(--rc-text-muted)]">
-      <li class="inline-flex items-center gap-3"><span
-        class="h-2 w-2 rounded-full bg-cyan-400"></span>{{ 'auth.featureLeague' | translate }}
-      </li>
-      <li class="inline-flex items-center gap-3"><span
-        class="h-2 w-2 rounded-full bg-cyan-400"></span>{{ 'auth.featureCalendar' | translate }}
-      </li>
-      <li class="inline-flex items-center gap-3"><span
-        class="h-2 w-2 rounded-full bg-cyan-400"></span>{{ 'auth.featureSteward' | translate }}
-      </li>
-    </ul>
-  </aside>
+    <div class="rc-panel p-7 md:p-10">
+      <span class="rc-eyebrow-bare">{{ 'paddock.registerForm' | translate }}</span>
+      <h1 class="rc-display text-4xl md:text-5xl mt-3">{{ 'auth.register' | translate }}</h1>
+      <p class="text-sm text-[var(--rc-muted)] mt-3">{{ 'auth.registerPanelSubtitle' | translate }}</p>
 
-  <div class="rc-panel rounded-3xl p-7">
-    <div class="mb-6 border-b border-[var(--rc-border)] pb-4">
-      <h2 class="inline-flex items-center gap-2 text-2xl font-semibold text-[var(--rc-text)]">
-        <fa-icon [icon]="icons.submit"></fa-icon>
-        {{ 'auth.register' | translate }}
-      </h2>
-      <p class="mt-2 text-sm text-[var(--rc-text-muted)]">{{ 'auth.registerPanelSubtitle' | translate }}</p>
+      <form (ngSubmit)="submit()" [formGroup]="form" class="space-y-5 mt-7">
+        <label class="rc-field">
+          <span class="rc-field-label"><span class="inline-flex items-center gap-2"><fa-icon [icon]="icons.username"></fa-icon>{{ 'auth.username' | translate }}</span><span class="rc-field-label-index">01</span></span>
+          <input class="rc-input" formControlName="username" type="text" placeholder="checo_perez"/>
+        </label>
+
+        <label class="rc-field">
+          <span class="rc-field-label"><span class="inline-flex items-center gap-2"><fa-icon [icon]="icons.email"></fa-icon>{{ 'auth.email' | translate }}</span><span class="rc-field-label-index">02</span></span>
+          <input class="rc-input" formControlName="email" type="email" placeholder="driver@racecontrol.io"/>
+        </label>
+
+        <label class="rc-field">
+          <span class="rc-field-label"><span class="inline-flex items-center gap-2"><fa-icon [icon]="icons.password"></fa-icon>{{ 'auth.password' | translate }}</span><span class="rc-field-label-index">03</span></span>
+          <input class="rc-input" formControlName="password" type="password" placeholder="********"/>
+        </label>
+
+        <div class="flex flex-wrap gap-3 items-center pt-2">
+          <button [disabled]="form.invalid" class="rc-btn-primary" type="submit"><fa-icon [icon]="icons.submit"></fa-icon>{{ 'auth.register' | translate }}</button>
+          <a class="rc-link" routerLink="/login">{{ 'auth.login' | translate }}</a>
+        </div>
+      </form>
     </div>
-
-    <form (ngSubmit)="submit()" [formGroup]="form" class="space-y-5">
-      <label class="block text-sm text-[var(--rc-text-muted)]">
-        <span class="inline-flex items-center gap-2"><fa-icon [icon]="icons.username"></fa-icon>
-          {{ 'auth.username' | translate }}</span>
-        <input class="rc-input mt-2" formControlName="username" type="text"/>
-      </label>
-
-      <label class="block text-sm text-[var(--rc-text-muted)]">
-        <span class="inline-flex items-center gap-2"><fa-icon [icon]="icons.email"></fa-icon>
-          {{ 'auth.email' | translate }}</span>
-        <input class="rc-input mt-2" formControlName="email" type="email"/>
-      </label>
-
-      <label class="block text-sm text-[var(--rc-text-muted)]">
-        <span class="inline-flex items-center gap-2"><fa-icon [icon]="icons.password"></fa-icon>
-          {{ 'auth.password' | translate }}</span>
-        <input class="rc-input mt-2" formControlName="password" type="password"/>
-      </label>
-
-      <div
-        class="rounded-xl border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] p-3 text-xs text-[var(--rc-text-muted)]">
-        {{ 'auth.registerHint' | translate }}
-      </div>
-
-      <div class="flex flex-wrap items-center gap-3 pt-1">
-        <button [disabled]="form.invalid" class="rc-btn-primary inline-flex items-center gap-2" type="submit">
-          <fa-icon [icon]="icons.submit"></fa-icon>
-          {{ 'auth.register' | translate }}
-        </button>
-        <span class="text-sm text-[var(--rc-text-muted)]">{{ 'auth.hasAccount' | translate }}</span>
-        <a class="text-sm font-medium text-cyan-600 hover:text-cyan-500 dark:text-cyan-300 dark:hover:text-cyan-200"
-           routerLink="/login">{{ 'auth.login' | translate }}</a>
-      </div>
-    </form>
   </div>
 </section>

@@ -10,4 +10,5 @@ import {TranslatePipe} from '@ngx-translate/core';
 export class LeagueHeaderComponent {
   @Input({required: true}) title!: string;
   @Input() subtitle = '';
+  @Input() eyebrow = 'paddock.leaguesEyebrow';
 }

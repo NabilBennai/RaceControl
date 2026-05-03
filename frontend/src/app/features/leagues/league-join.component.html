@@ -1,26 +1,30 @@
-<section class="mx-auto w-full max-w-4xl px-4 py-8">
-  <div class="rc-panel rounded-3xl p-7">
-    <app-league-header title="league.join.title" subtitle="league.join.subtitle"></app-league-header>
-
-    <div class="grid gap-6 md:grid-cols-2">
-      <article class="rounded-2xl border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] p-5">
-        <h3 class="text-base font-semibold text-[var(--rc-text)]">{{ 'league.join.publicTitle' | translate }}</h3>
-        <p class="mt-2 text-sm text-[var(--rc-text-muted)]">{{ 'league.join.publicDescription' | translate }}</p>
-        <button (click)="requestPublicJoin()" class="rc-btn-primary mt-4" type="button">{{ 'league.join.publicAction' | translate }}</button>
-      </article>
-
-      <article class="rounded-2xl border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] p-5">
-        <h3 class="text-base font-semibold text-[var(--rc-text)]">{{ 'league.join.codeTitle' | translate }}</h3>
-        <p class="mt-2 text-sm text-[var(--rc-text-muted)]">{{ 'league.join.codeDescription' | translate }}</p>
-        <form [formGroup]="byCodeForm" (ngSubmit)="requestJoinByCode()" class="mt-4 space-y-3">
-          <input class="rc-input" formControlName="invitationCode" type="text" [placeholder]="'league.join.codePlaceholder' | translate"/>
-          <button class="rc-btn-primary" type="submit">{{ 'league.join.codeAction' | translate }}</button>
-        </form>
-      </article>
+<section class="rc-page rc-page-narrow rc-stagger">
+  <header class="rc-page-header">
+    <div>
+      <span class="rc-eyebrow">{{ 'league.join.title' | translate }}</span>
+      <h1 class="rc-display rc-page-title mt-4">{{ 'league.join.subtitle' | translate }}</h1>
     </div>
+  </header>
 
-    <a class="mt-6 inline-flex text-sm text-[var(--rc-text-muted)] hover:text-[var(--rc-text)]" [routerLink]="['/leagues', leagueId]">
-      {{ 'league.backToDetails' | translate }}
-    </a>
+  <div class="grid gap-6 md:grid-cols-2">
+    <article class="rc-card p-7">
+      <h3 class="rc-display text-2xl">{{ 'league.join.publicTitle' | translate }}</h3>
+      <p class="text-sm text-[var(--rc-muted)] mt-3">{{ 'league.join.publicDescription' | translate }}</p>
+      <button (click)="requestPublicJoin()" class="rc-btn-primary mt-6" type="button">{{ 'league.join.publicAction' | translate }}</button>
+    </article>
+
+    <article class="rc-panel p-7">
+      <h3 class="rc-display text-2xl">{{ 'league.join.codeTitle' | translate }}</h3>
+      <p class="text-sm text-[var(--rc-muted)] mt-3">{{ 'league.join.codeDescription' | translate }}</p>
+      <form [formGroup]="byCodeForm" (ngSubmit)="requestJoinByCode()" class="mt-6 space-y-4">
+        <label class="rc-field">
+          <span class="rc-field-label"><span>{{ 'paddock.invitationCodeLabel' | translate }}</span><span class="rc-field-label-index">01</span></span>
+          <input class="rc-input rc-mono uppercase tracking-[0.2em]" formControlName="invitationCode" type="text" [placeholder]="'league.join.codePlaceholder' | translate"/>
+        </label>
+        <button class="rc-btn-primary w-full" type="submit">{{ 'league.join.codeAction' | translate }}</button>
+      </form>
+    </article>
   </div>
+
+  <a class="rc-link-quiet text-sm mt-6 inline-flex" [routerLink]="['/leagues', leagueId]">&larr; {{ 'league.backToDetails' | translate }}</a>
 </section>

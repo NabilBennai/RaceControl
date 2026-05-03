@@ -1,57 +1,50 @@
-﻿<section class="mx-auto w-full max-w-6xl px-4 py-10">
-  <div class="grid items-center gap-8 lg:grid-cols-2">
-    <div>
-      <p class="inline-flex rounded-full border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] px-3 py-1 text-xs font-medium text-[var(--rc-text-muted)]">{{ 'home.badge' | translate }}</p>
-      <h1 class="mt-4 text-4xl font-semibold tracking-tight text-[var(--rc-text)] md:text-5xl">{{ 'home.title' | translate }}</h1>
-      <p class="mt-4 text-base leading-7 text-[var(--rc-text-muted)]">{{ 'home.subtitle' | translate }}</p>
-      <div class="mt-7 flex flex-wrap gap-3">
-        <a class="rc-btn-primary inline-flex items-center gap-2" routerLink="/register">{{ 'auth.register' | translate }}</a>
-        <a class="rc-btn-ghost inline-flex items-center gap-2" routerLink="/login">{{ 'auth.login' | translate }}</a>
-      </div>
-      <div class="mt-8 grid grid-cols-3 gap-3">
-        <div class="rounded-xl border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] p-3 text-center">
-          <p class="text-2xl font-semibold text-[var(--rc-text)]">120+</p>
-          <p class="text-xs text-[var(--rc-text-muted)]">{{ 'home.statsLeagues' | translate }}</p>
-        </div>
-        <div class="rounded-xl border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] p-3 text-center">
-          <p class="text-2xl font-semibold text-[var(--rc-text)]">2k+</p>
-          <p class="text-xs text-[var(--rc-text-muted)]">{{ 'home.statsDrivers' | translate }}</p>
-        </div>
-        <div class="rounded-xl border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] p-3 text-center">
-          <p class="text-2xl font-semibold text-[var(--rc-text)]">6k+</p>
-          <p class="text-xs text-[var(--rc-text-muted)]">{{ 'home.statsRaces' | translate }}</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="rc-panel rounded-3xl p-5 md:p-6">
-      <div class="grid gap-4 sm:grid-cols-2">
-        <article class="rounded-2xl border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] p-4 sm:col-span-2">
-          <fa-icon [icon]="icons.calendar" class="text-cyan-400"></fa-icon>
-          <h3 class="mt-2 text-lg font-semibold text-[var(--rc-text)]">{{ 'home.cardCalendarTitle' | translate }}</h3>
-          <p class="mt-1 text-sm text-[var(--rc-text-muted)]">{{ 'home.cardCalendarDescription' | translate }}</p>
-        </article>
-        <article class="rounded-2xl border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] p-4">
-          <fa-icon [icon]="icons.race" class="text-cyan-400"></fa-icon>
-          <h3 class="mt-2 text-base font-semibold text-[var(--rc-text)]">{{ 'home.cardResultsTitle' | translate }}</h3>
-          <p class="mt-1 text-sm text-[var(--rc-text-muted)]">{{ 'home.cardResultsDescription' | translate }}</p>
-        </article>
-        <article class="rounded-2xl border border-[var(--rc-border)] bg-[color:var(--rc-surface-2)] p-4">
-          <fa-icon [icon]="icons.steward" class="text-cyan-400"></fa-icon>
-          <h3 class="mt-2 text-base font-semibold text-[var(--rc-text)]">{{ 'home.cardStewardTitle' | translate }}</h3>
-          <p class="mt-1 text-sm text-[var(--rc-text-muted)]">{{ 'home.cardStewardDescription' | translate }}</p>
-        </article>
-      </div>
+<section class="rc-page rc-stagger">
+  <div class="rc-ticker" aria-hidden="true">
+    <div class="rc-ticker-track">
+      <span>{{ 'paddock.tickerLive' | translate }}</span>
+      <span>{{ 'paddock.tickerSector' | translate }}</span>
+      <span>{{ 'paddock.tickerLeagues' | translate }}</span>
+      <span>{{ 'paddock.tickerDrivers' | translate }}</span>
+      <span>{{ 'paddock.tickerRaces' | translate }}</span>
+      <span>{{ 'paddock.tickerStewards' | translate }}</span>
+      <span>{{ 'paddock.tickerLive' | translate }}</span>
+      <span>{{ 'paddock.tickerSector' | translate }}</span>
     </div>
   </div>
 
-  <div class="rc-panel mt-8 rounded-3xl p-6 md:p-8">
-    <div class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
+  <section class="rc-panel p-7 md:p-10 mt-6">
+    <div class="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
       <div>
-        <h2 class="text-2xl font-semibold text-[var(--rc-text)]">{{ 'home.ctaTitle' | translate }}</h2>
-        <p class="mt-1 text-sm text-[var(--rc-text-muted)]">{{ 'home.ctaSubtitle' | translate }}</p>
+        <span class="rc-eyebrow">{{ 'home.badge' | translate }}</span>
+        <h1 class="rc-display text-[clamp(2.4rem,6vw,5rem)] mt-4 leading-none">{{ 'home.title' | translate }}</h1>
+        <p class="text-base leading-relaxed text-[var(--rc-muted)] mt-5 max-w-2xl">{{ 'home.subtitle' | translate }}</p>
+        <div class="flex flex-wrap gap-3 mt-7">
+          <a class="rc-btn-primary" routerLink="/register">{{ 'auth.register' | translate }}</a>
+          <a class="rc-btn-ghost" routerLink="/login">{{ 'auth.login' | translate }}</a>
+        </div>
       </div>
-      <a class="rc-btn-primary inline-flex items-center gap-2" routerLink="/register">{{ 'home.ctaButton' | translate }}</a>
+
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+        <article class="rc-card">
+          <h3 class="rc-display text-xl">{{ 'home.cardCalendarTitle' | translate }}</h3>
+          <p class="text-sm text-[var(--rc-muted)] mt-2">{{ 'home.cardCalendarDescription' | translate }}</p>
+        </article>
+        <article class="rc-card">
+          <h3 class="rc-display text-xl">{{ 'home.cardResultsTitle' | translate }}</h3>
+          <p class="text-sm text-[var(--rc-muted)] mt-2">{{ 'home.cardResultsDescription' | translate }}</p>
+        </article>
+        <article class="rc-card sm:col-span-2 lg:col-span-1">
+          <h3 class="rc-display text-xl">{{ 'home.cardStewardTitle' | translate }}</h3>
+          <p class="text-sm text-[var(--rc-muted)] mt-2">{{ 'home.cardStewardDescription' | translate }}</p>
+        </article>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <section class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4 mt-6">
+    <article class="rc-card"><p class="rc-eyebrow-bare">{{ 'home.statsLeagues' | translate }}</p><p class="rc-numeric text-4xl mt-2">120+</p></article>
+    <article class="rc-card"><p class="rc-eyebrow-bare">{{ 'home.statsDrivers' | translate }}</p><p class="rc-numeric text-4xl mt-2">2,000+</p></article>
+    <article class="rc-card"><p class="rc-eyebrow-bare">{{ 'home.statsRaces' | translate }}</p><p class="rc-numeric text-4xl mt-2">6,341+</p></article>
+    <article class="rc-card"><p class="rc-eyebrow-bare">{{ 'paddock.uptime' | translate }}</p><p class="rc-numeric text-4xl mt-2">99.9%</p></article>
+  </section>
 </section>

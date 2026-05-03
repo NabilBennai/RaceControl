@@ -55,6 +55,21 @@ export const routes: Routes = [
         loadComponent: () => import('./features/leagues/league-members.component').then((m) => m.LeagueMembersComponent)
       },
       {
+        path: 'leagues/:leagueId/seasons',
+        canActivate: [authGuard],
+        loadComponent: () => import('./features/seasons/leagues-seasons.component').then((m) => m.LeaguesSeasonsComponent)
+      },
+      {
+        path: 'seasons/:seasonId',
+        canActivate: [authGuard],
+        loadComponent: () => import('./features/seasons/season-detail.component').then((m) => m.SeasonDetailComponent)
+      },
+      {
+        path: 'seasons/:seasonId/teams',
+        canActivate: [authGuard],
+        loadComponent: () => import('./features/seasons/season-teams.component').then((m) => m.SeasonTeamsComponent)
+      },
+      {
         path: 'admin',
         canActivate: [authGuard, adminGuard],
         loadComponent: () => import('./layout/admin-layout.component').then((m) => m.AdminLayoutComponent)

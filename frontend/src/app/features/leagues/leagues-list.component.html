@@ -1,19 +1,33 @@
-<section class="mx-auto w-full max-w-6xl px-4 py-8">
-  <app-league-header title="league.listTitle" subtitle="league.listSubtitle"></app-league-header>
-
-  <div class="mb-6">
-    <a class="rc-btn-primary inline-flex" routerLink="/leagues/new">{{ 'league.create' | translate }}</a>
-  </div>
-
-  @if (leagues.length === 0) {
-    <p class="rounded-2xl border border-dashed border-[var(--rc-border)] p-6 text-sm text-[var(--rc-text-muted)]">
-      {{ 'league.emptyList' | translate }}
-    </p>
-  } @else {
-    <div class="grid gap-4 md:grid-cols-2">
-      @for (league of leagues; track league.id) {
-        <app-league-card [league]="league"></app-league-card>
-      }
+<section class="rc-page rc-stagger">
+  <header class="rc-page-header">
+    <div>
+      <span class="rc-eyebrow">{{ 'paddock.leaguesEyebrow' | translate }}</span>
+      <h1 class="rc-display rc-page-title mt-4">{{ 'league.listTitle' | translate }}</h1>
+      <p class="rc-page-subtitle">{{ 'league.listSubtitle' | translate }}</p>
     </div>
-  }
+    <a class="rc-btn-primary" routerLink="/leagues/new">{{ 'league.create' | translate }}</a>
+  </header>
+
+  <div class="grid gap-6 lg:grid-cols-[2fr_1fr]">
+    <section>
+      @if (leagues.length === 0) {
+        <div class="rc-empty">
+          <p class="rc-eyebrow-bare">{{ 'paddock.emptyGrid' | translate }}</p>
+          <p class="mt-3 text-[var(--rc-ink-soft)]">{{ 'league.emptyList' | translate }}</p>
+        </div>
+      } @else {
+        <div class="grid gap-5 md:grid-cols-2">
+          @for (league of leagues; track league.id) {
+            <app-league-card [league]="league"></app-league-card>
+          }
+        </div>
+      }
+    </section>
+
+    <aside class="rc-card p-6 h-fit">
+      <p class="rc-eyebrow-bare">{{ 'paddock.showing' | translate }}</p>
+      <p class="rc-numeric text-4xl mt-2">{{ leagues.length.toString().padStart(2, '0') }}</p>
+      <p class="text-sm text-[var(--rc-muted)] mt-3">{{ 'paddock.entries' | translate }}</p>
+    </aside>
+  </div>
 </section>

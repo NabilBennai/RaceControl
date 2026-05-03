@@ -1,0 +1,35 @@
+:host {
+  display: block;
+}
+
+.rc-season-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--rc-line);
+  border-radius: var(--rc-r-md);
+  background: var(--rc-paper);
+  transition: border-color 220ms ease, transform 220ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rc-season-row:hover {
+  border-color: var(--rc-ink);
+  transform: translateX(3px);
+}
+
+.rc-season-row-index {
+  font-size: 1.4rem;
+  letter-spacing: -0.02em;
+  color: var(--rc-muted-soft);
+  font-weight: 500;
+}
+
+.rc-season-row:hover .rc-season-row-index {
+  color: var(--rc-accent);
+}
+
+.rc-season-row-body {
+  min-width: 0;
+}

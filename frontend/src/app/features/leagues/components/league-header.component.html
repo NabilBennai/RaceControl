@@ -1,6 +1,9 @@
-<header class="mb-6">
-  <h1 class="text-3xl font-semibold text-[var(--rc-text)]">{{ title | translate }}</h1>
-  @if (subtitle) {
-    <p class="mt-2 text-sm text-[var(--rc-text-muted)]">{{ subtitle | translate }}</p>
-  }
+<header class="rc-page-header">
+  <div>
+    <span class="rc-eyebrow">{{ eyebrow | translate }}</span>
+    <h1 class="rc-display rc-page-title mt-4">{{ title | translate }}</h1>
+    @if (subtitle) {
+      <p class="rc-page-subtitle">{{ subtitle | translate }}</p>
+    }
+  </div>
 </header>

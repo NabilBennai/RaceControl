@@ -1,27 +1,39 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-4">
-  <label class="block text-sm text-[var(--rc-text-muted)]">
-    <span>{{ 'league.name' | translate }}</span>
-    <input class="rc-input mt-2" formControlName="name" type="text"/>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-5">
+  <label class="rc-field">
+    <span class="rc-field-label">
+      <span>{{ 'league.name' | translate }}</span>
+      <span class="rc-field-label-index">01</span>
+    </span>
+    <input class="rc-input" formControlName="name" type="text" placeholder="Iberian GT Championship"/>
   </label>
 
-  <label class="block text-sm text-[var(--rc-text-muted)]">
-    <span>{{ 'league.description' | translate }}</span>
-    <textarea class="rc-input mt-2 min-h-28" formControlName="description"></textarea>
+  <label class="rc-field">
+    <span class="rc-field-label">
+      <span>{{ 'league.description' | translate }}</span>
+      <span class="rc-field-label-index">02</span>
+    </span>
+    <textarea class="rc-input min-h-32" formControlName="description" placeholder="Long-form season with sprint + feature races, mandatory pit stops, daily qualifying."></textarea>
   </label>
 
-  <div class="grid gap-4 md:grid-cols-2">
-    <label class="block text-sm text-[var(--rc-text-muted)]">
-      <span>{{ 'league.platform' | translate }}</span>
-      <select class="rc-input mt-2" formControlName="gamePlatform">
+  <div class="grid gap-5 md:grid-cols-2">
+    <label class="rc-field">
+      <span class="rc-field-label">
+        <span>{{ 'league.platform' | translate }}</span>
+        <span class="rc-field-label-index">03</span>
+      </span>
+      <select class="rc-input" formControlName="gamePlatform">
         @for (platform of platforms; track platform) {
           <option [value]="platform">{{ platform }}</option>
         }
       </select>
     </label>
 
-    <label class="block text-sm text-[var(--rc-text-muted)]">
-      <span>{{ 'league.visibilityLabel' | translate }}</span>
-      <select class="rc-input mt-2" formControlName="visibility">
+    <label class="rc-field">
+      <span class="rc-field-label">
+        <span>{{ 'league.visibilityLabel' | translate }}</span>
+        <span class="rc-field-label-index">04</span>
+      </span>
+      <select class="rc-input" formControlName="visibility">
         @for (visibility of visibilities; track visibility) {
           <option [value]="visibility">{{ 'league.visibility.' + visibility | translate }}</option>
         }
@@ -29,5 +41,9 @@
     </label>
   </div>
 
-  <button [disabled]="form.invalid" class="rc-btn-primary" type="submit">{{ submitLabel | translate }}</button>
+  <div class="pt-3 border-t border-[var(--rc-line-faint)]">
+    <button [disabled]="form.invalid" class="rc-btn-primary" type="submit">
+      {{ submitLabel | translate }} →
+    </button>
+  </div>
 </form>

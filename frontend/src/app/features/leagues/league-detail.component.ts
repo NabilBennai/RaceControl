@@ -6,11 +6,10 @@ import {LeagueRequest, LeagueResponse} from '../../core/models/league.models';
 import {LeagueService} from '../../core/services/league.service';
 import {ToastService} from '../../shared/services/toast.service';
 import {LeagueFormComponent} from './components/league-form.component';
-import {LeagueHeaderComponent} from './components/league-header.component';
 
 @Component({
   selector: 'app-league-detail',
-  imports: [TranslatePipe, RouterLink, LeagueFormComponent, LeagueHeaderComponent],
+  imports: [TranslatePipe, RouterLink, LeagueFormComponent],
   templateUrl: './league-detail.component.html',
   styleUrl: './league-detail.component.scss'
 })
